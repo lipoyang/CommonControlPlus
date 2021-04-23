@@ -30,9 +30,10 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPlus3 = new CommonControlPlus.ComboBoxPlus();
             this.comboBoxPlus2 = new CommonControlPlus.ComboBoxPlus();
             this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
-            this.comboBoxPlus3 = new CommonControlPlus.ComboBoxPlus();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -53,30 +54,9 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 1;
             // 
-            // comboBoxPlus2
-            // 
-            this.comboBoxPlus2.ErrorMessageBoxEnabled = false;
-            this.comboBoxPlus2.ErrorOutputEnabled = false;
-            this.comboBoxPlus2.FormattingEnabled = true;
-            this.comboBoxPlus2.Location = new System.Drawing.Point(510, 234);
-            this.comboBoxPlus2.Name = "comboBoxPlus2";
-            this.comboBoxPlus2.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxPlus2.TabIndex = 3;
-            this.comboBoxPlus2.UserErrorMessage = "";
-            // 
-            // comboBoxPlus1
-            // 
-            this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
-            this.comboBoxPlus1.ErrorOutputEnabled = false;
-            this.comboBoxPlus1.FormattingEnabled = true;
-            this.comboBoxPlus1.Location = new System.Drawing.Point(271, 129);
-            this.comboBoxPlus1.Name = "comboBoxPlus1";
-            this.comboBoxPlus1.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxPlus1.TabIndex = 2;
-            this.comboBoxPlus1.UserErrorMessage = "";
-            // 
             // comboBoxPlus3
             // 
+            this.comboBoxPlus3.ErrorMessage = "";
             this.comboBoxPlus3.ErrorMessageBoxEnabled = false;
             this.comboBoxPlus3.ErrorOutputEnabled = false;
             this.comboBoxPlus3.FormattingEnabled = true;
@@ -84,13 +64,46 @@
             this.comboBoxPlus3.Name = "comboBoxPlus3";
             this.comboBoxPlus3.Size = new System.Drawing.Size(121, 20);
             this.comboBoxPlus3.TabIndex = 4;
-            this.comboBoxPlus3.UserErrorMessage = "";
+            // 
+            // comboBoxPlus2
+            // 
+            this.comboBoxPlus2.ErrorMessage = "";
+            this.comboBoxPlus2.ErrorMessageBoxEnabled = false;
+            this.comboBoxPlus2.ErrorOutputEnabled = false;
+            this.comboBoxPlus2.FormattingEnabled = true;
+            this.comboBoxPlus2.Location = new System.Drawing.Point(510, 234);
+            this.comboBoxPlus2.Name = "comboBoxPlus2";
+            this.comboBoxPlus2.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxPlus2.TabIndex = 3;
+            this.comboBoxPlus2.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus2_UserInputCheck);
+            // 
+            // comboBoxPlus1
+            // 
+            this.comboBoxPlus1.ErrorMessage = "";
+            this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
+            this.comboBoxPlus1.ErrorOutputEnabled = false;
+            this.comboBoxPlus1.FormattingEnabled = true;
+            this.comboBoxPlus1.Location = new System.Drawing.Point(271, 129);
+            this.comboBoxPlus1.Name = "comboBoxPlus1";
+            this.comboBoxPlus1.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxPlus1.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(150, 234);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBoxPlus3);
             this.Controls.Add(this.comboBoxPlus2);
             this.Controls.Add(this.comboBoxPlus1);
@@ -110,6 +123,7 @@
         private CommonControlPlus.ComboBoxPlus comboBoxPlus1;
         private CommonControlPlus.ComboBoxPlus comboBoxPlus2;
         private CommonControlPlus.ComboBoxPlus comboBoxPlus3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

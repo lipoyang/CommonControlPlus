@@ -12,6 +12,20 @@ namespace TestApp
 {
     public partial class FormMain : Form
     {
+        delegate string EventHoge();
+
+        event EventHoge eventHoge;
+
+        string Func1()
+        {
+            return "AAA";
+        }
+        string Func2()
+        {
+            return "BBB";
+        }
+
+
         public FormMain()
         {
             InitializeComponent();
@@ -37,6 +51,8 @@ namespace TestApp
             comboBox1.DataSource = colors;
 
 
+            eventHoge += Func1;
+            eventHoge += Func2;
 
             //comboBox1.Items.AddRange(items);
             //comboBox1.Items.Add(iData[0]);
@@ -49,6 +65,18 @@ namespace TestApp
             //comboBox1.SelectedItem = hoges[2];// new Hoge("BBB");
 
             //MessageBox.Show(comboBox1.SelectedItem.ToString());
+        }
+
+        private bool comboBoxPlus2_UserInputCheck(string inputText)
+        {
+            return false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string ret = eventHoge();
+
+            MessageBox.Show(ret);
         }
     }
 
