@@ -117,6 +117,19 @@ namespace CommonControlPlus
             }
         }
 
+        /// <summary>
+        /// オブジェクトの配列をリストに追加する。int[]など、Items.AddRange()が使えない配列にも対応。
+        /// </summary>
+        /// <param name="arrayObject">追加するオブジェクトの配列</param>
+        public void AddArray(object arrayObject)
+        {
+            Array array = (Array)arrayObject;
+            foreach(object obj in array)
+            {
+                this.Items.Add(obj);
+            }
+        }
+
         #endregion
 
         #region 内部処理
@@ -168,11 +181,11 @@ namespace CommonControlPlus
                     }
                     else
                     {
+                        ErrorMessageOutput();
+
                         // 前回の選択値に戻す
                         this.SelectedItem = OldItem;
                         if (OldItem == null) this.Text = OldText;
-
-                        ErrorMessageOutput();
                     }
                 }
             }
@@ -197,11 +210,11 @@ namespace CommonControlPlus
                 }
                 else
                 {
+                    ErrorMessageOutput();
+
                     // 前回の選択値に戻す
                     this.SelectedItem = OldItem;
                     if (OldItem == null) this.Text = OldText;
-
-                    ErrorMessageOutput();
 
                     e.Cancel = true; // 検証の結果、キャンセルを返す
                 }
