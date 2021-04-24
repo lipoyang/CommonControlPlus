@@ -82,6 +82,8 @@ namespace CommonControlPlus
         /// <returns>項目が存在したか</returns>
         public bool SelectItem(object obj)
         {
+            if (obj == null) return false;
+
             this.SelectedItem = obj;
 
             if((this.SelectedItem != null) &&
@@ -102,6 +104,8 @@ namespace CommonControlPlus
         /// <returns>項目が存在したか</returns>
         public bool SelectOrAddItem(object obj)
         {
+            if (obj == null) return false;
+
             this.SelectedItem = obj;
 
             if ((this.SelectedItem != null) &&

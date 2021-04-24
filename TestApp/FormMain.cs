@@ -38,6 +38,12 @@ namespace TestApp
             comboBoxPlus2.AddArray(colors);
             comboBoxPlus2.SelectedIndex = 0;
             comboBoxPlus2.Changed += comboBoxPlus2_Changed;
+
+            // ComboBoxIntegerのテスト
+            int[] intItems = { 111, 222, 333 };
+            comboBoxInteger.AddArray(intItems);
+            comboBoxInteger.SelectedIndex = 0;
+            comboBoxInteger.Changed += comboBoxInteger_Changed;
         }
 
         #region ComboBoxPlusのテスト1 (文字列)
@@ -179,6 +185,138 @@ namespace TestApp
                 return false;
             }
             return true;
+        }
+        #endregion
+
+        #region ComboBoxIntegerのテスト
+
+        // 最大値のチェックのテスト
+        private void checkBox3_1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3_1.Checked)
+            {
+　              comboBoxInteger.MaxValue = 1000;
+            }
+            else
+            {
+                comboBoxInteger.MaxValue = null;
+            }
+        }
+
+        // 最小値のチェックのテスト
+        private void checkBox3_2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3_2.Checked)
+            {
+                comboBoxInteger.MinValue = -1000;
+            }
+            else
+            {
+                comboBoxInteger.MinValue = null;
+            }
+        }
+
+        // 最小幅のチェックのテスト
+        private void checkBox3_3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3_3.Checked)
+            {
+                comboBoxInteger.StepValue = 5;
+            }
+            else
+            {
+                comboBoxInteger.StepValue = null;
+            }
+        }
+
+        // ユーザー定義のチェック関数のON/OFF
+        private void checkBox3_4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3_4.Checked)
+            {
+                comboBoxInteger.InputCheck += comboBoxInteger_InputCheck;
+            }
+            else
+            {
+                comboBoxInteger.InputCheck -= comboBoxInteger_InputCheck;
+            }
+        }
+
+        // 項目選択のテスト
+        private void button3_1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int val = int.Parse(textBox3.Text);
+
+                if (comboBoxInteger.SelectItem(val))
+                {
+                    MessageBox.Show("見つかりました", "テスト");
+                }
+                else
+                {
+                    MessageBox.Show("見つかりませんでした", "テスト");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数値を指定してね！", "テスト");
+            }
+        }
+        // 項目選択/追加のテスト
+        private void button3_2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int val = int.Parse(textBox3.Text);
+
+                if (comboBoxInteger.SelectOrAddItem(val))
+                {
+                    MessageBox.Show("見つかりました", "テスト");
+                }
+                else
+                {
+                    MessageBox.Show("追加しました", "テスト");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数値を指定してね！", "テスト");
+            }
+        }
+        // 値が変化した時のイベント
+        private void comboBoxInteger_Changed(object sender, EventArgs e)
+        {
+            int? val = comboBoxInteger.Value;
+
+            if(val == null)
+            {
+                MessageBox.Show("無効な値です","テスト");
+            }
+            else
+            {
+                MessageBox.Show("整数値が変化しました: " + val.ToString(), "テスト");
+            }
+        }
+        // ユーザー定義の入力チェック関数
+        private bool comboBoxInteger_InputCheck(string text)
+        {
+            try
+            {
+                int val = int.Parse(text);
+
+                if(val % 100 != 0)
+                {
+                    comboBoxInteger.ErrorMessage = "100で割り切れないよ！";
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                comboBoxInteger.ErrorMessage = "数値じゃないよ！";
+                return false;
+            }
         }
         #endregion
     }

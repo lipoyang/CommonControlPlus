@@ -12,7 +12,7 @@ namespace CommonControlPlus
     /// 数値用の拡張版コンボボックス (ジェネリッククラス)
     /// </summary>
     /// <typeparam name="Type">数値の型 (int, double, decimal のいずれか)</typeparam>
-    public abstract class ComboBoxNumeric<Type> : ComboBoxPlus where Type : struct, IComparable, IFormattable
+    public class ComboBoxNumeric<Type> : ComboBoxPlus where Type : struct, IComparable, IFormattable
     {
         #region プロパティ
 
@@ -42,12 +42,12 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public Type Value
+        public Type? Value
         {
             get
             {
                 // 既存のリストから選択されている場合はその値を返す
-                if(this.SelectedItem != null)
+                if (this.SelectedItem != null)
                 {
                     return (Type)this.SelectedItem;
                 }
@@ -63,14 +63,14 @@ namespace CommonControlPlus
                             value = (Type)converter.ConvertFromString(this.Text);
                             return value;
                         }
-                        catch (Exception e)
+                        catch
                         {
-                            throw e;
+                            return null;
                         }
                     }
                     else
                     {
-                        throw new  InvalidOperationException("予期しないエラーです");
+                        return null;
                     }
                 }
             }
@@ -145,17 +145,15 @@ namespace CommonControlPlus
             }
 
             // 最小ステップのチェック
-            if ((StepValue != null) && (!Devidible(inputVal, (Type)StepValue)))
+            if ((StepValue != null) && (StepValue != (dynamic)0) && 
+                (((dynamic)inputVal % StepValue) != 0))
             {
-                ErrorMessage = StepValue.ToString() + "の倍数を入力してください";
+                    ErrorMessage = StepValue.ToString() + "の倍数を入力してください";
                 return false;
             }
             return true;
         }
 
-        // 剰余がゼロ(割り切れる)かチェック
-        abstract protected bool Devidible(Type a, Type b);
- 
         #endregion
     }
 
@@ -164,11 +162,6 @@ namespace CommonControlPlus
     /// </summary>
     public class ComboBoxDouble : ComboBoxNumeric<double>
     {
-        // 剰余がゼロ(割り切れる)かチェック
-        override protected bool Devidible(double a, double b)
-        {
-            return ((a % b) == 0);
-        }
     }
 
     /// <summary>
@@ -176,11 +169,6 @@ namespace CommonControlPlus
     /// </summary>
     public class ComboBoxDecimal : ComboBoxNumeric<decimal>
     {
-        // 剰余がゼロ(割り切れる)かチェック
-        override protected bool Devidible(decimal a, decimal b)
-        {
-            return ((a % b) == 0);
-        }
     }
 
     /// <summary>
@@ -188,10 +176,5 @@ namespace CommonControlPlus
     /// </summary>
     public class ComboBoxInteger : ComboBoxNumeric<int>
     {
-        // 剰余がゼロ(割り切れる)かチェック
-        override protected bool Devidible(int a, int b)
-        {
-            return ((a % b) == 0);
-        }
     }
 }

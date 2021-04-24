@@ -36,14 +36,24 @@
             this.checkBox1_3 = new System.Windows.Forms.CheckBox();
             this.checkBox1_2 = new System.Windows.Forms.CheckBox();
             this.checkBox1_1 = new System.Windows.Forms.CheckBox();
-            this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2_2 = new System.Windows.Forms.Button();
             this.button2_1 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button3_2 = new System.Windows.Forms.Button();
+            this.button3_1 = new System.Windows.Forms.Button();
+            this.checkBox3_4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3_3 = new System.Windows.Forms.CheckBox();
+            this.checkBox3_2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3_1 = new System.Windows.Forms.CheckBox();
+            this.comboBoxInteger = new CommonControlPlus.ComboBoxInteger();
             this.comboBoxPlus2 = new CommonControlPlus.ComboBoxPlus();
+            this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -117,9 +127,9 @@
             this.checkBox1_2.AutoSize = true;
             this.checkBox1_2.Location = new System.Drawing.Point(18, 95);
             this.checkBox1_2.Name = "checkBox1_2";
-            this.checkBox1_2.Size = new System.Drawing.Size(284, 22);
+            this.checkBox1_2.Size = new System.Drawing.Size(413, 22);
             this.checkBox1_2.TabIndex = 2;
-            this.checkBox1_2.Text = "ユーザー定義の入力チェックのテスト";
+            this.checkBox1_2.Text = "ユーザー定義の入力チェックのテスト (4文字以内か？)";
             this.checkBox1_2.UseVisualStyleBackColor = true;
             // 
             // checkBox1_1
@@ -131,19 +141,6 @@
             this.checkBox1_1.TabIndex = 1;
             this.checkBox1_1.Text = "値が変化したときのイベントのテスト";
             this.checkBox1_1.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxPlus1
-            // 
-            this.comboBoxPlus1.ErrorMessage = "";
-            this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
-            this.comboBoxPlus1.ErrorOutputEnabled = false;
-            this.comboBoxPlus1.FormattingEnabled = true;
-            this.comboBoxPlus1.Location = new System.Drawing.Point(18, 34);
-            this.comboBoxPlus1.Name = "comboBoxPlus1";
-            this.comboBoxPlus1.Size = new System.Drawing.Size(166, 26);
-            this.comboBoxPlus1.TabIndex = 0;
-            this.comboBoxPlus1.Changed += new System.EventHandler(this.comboBoxPlus1_Changed);
-            this.comboBoxPlus1.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus1_InputCheck);
             // 
             // groupBox2
             // 
@@ -186,6 +183,109 @@
             this.button2_1.UseVisualStyleBackColor = true;
             this.button2_1.Click += new System.EventHandler(this.button2_1_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboBoxInteger);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.button3_2);
+            this.groupBox3.Controls.Add(this.button3_1);
+            this.groupBox3.Controls.Add(this.checkBox3_4);
+            this.groupBox3.Controls.Add(this.checkBox3_3);
+            this.groupBox3.Controls.Add(this.checkBox3_2);
+            this.groupBox3.Controls.Add(this.checkBox3_1);
+            this.groupBox3.Location = new System.Drawing.Point(500, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(472, 255);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ComboBoxIntegerのテスト";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(251, 182);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(159, 25);
+            this.textBox3.TabIndex = 9;
+            // 
+            // button3_2
+            // 
+            this.button3_2.Location = new System.Drawing.Point(18, 214);
+            this.button3_2.Name = "button3_2";
+            this.button3_2.Size = new System.Drawing.Size(213, 28);
+            this.button3_2.TabIndex = 8;
+            this.button3_2.Text = "項目選択/追加のテスト";
+            this.button3_2.UseVisualStyleBackColor = true;
+            this.button3_2.Click += new System.EventHandler(this.button3_2_Click);
+            // 
+            // button3_1
+            // 
+            this.button3_1.Location = new System.Drawing.Point(18, 180);
+            this.button3_1.Name = "button3_1";
+            this.button3_1.Size = new System.Drawing.Size(213, 28);
+            this.button3_1.TabIndex = 7;
+            this.button3_1.Text = "項目選択のテスト";
+            this.button3_1.UseVisualStyleBackColor = true;
+            this.button3_1.Click += new System.EventHandler(this.button3_1_Click);
+            // 
+            // checkBox3_4
+            // 
+            this.checkBox3_4.AutoSize = true;
+            this.checkBox3_4.Location = new System.Drawing.Point(18, 151);
+            this.checkBox3_4.Name = "checkBox3_4";
+            this.checkBox3_4.Size = new System.Drawing.Size(410, 22);
+            this.checkBox3_4.TabIndex = 4;
+            this.checkBox3_4.Text = "ユーザー定義の入力チェックのテスト (100の倍数か？)";
+            this.checkBox3_4.UseVisualStyleBackColor = true;
+            this.checkBox3_4.CheckedChanged += new System.EventHandler(this.checkBox3_4_CheckedChanged);
+            // 
+            // checkBox3_3
+            // 
+            this.checkBox3_3.AutoSize = true;
+            this.checkBox3_3.Location = new System.Drawing.Point(18, 123);
+            this.checkBox3_3.Name = "checkBox3_3";
+            this.checkBox3_3.Size = new System.Drawing.Size(215, 22);
+            this.checkBox3_3.TabIndex = 3;
+            this.checkBox3_3.Text = "最小幅チェックのテスト (5)";
+            this.checkBox3_3.UseVisualStyleBackColor = true;
+            this.checkBox3_3.CheckedChanged += new System.EventHandler(this.checkBox3_3_CheckedChanged);
+            // 
+            // checkBox3_2
+            // 
+            this.checkBox3_2.AutoSize = true;
+            this.checkBox3_2.Location = new System.Drawing.Point(18, 95);
+            this.checkBox3_2.Name = "checkBox3_2";
+            this.checkBox3_2.Size = new System.Drawing.Size(251, 22);
+            this.checkBox3_2.TabIndex = 2;
+            this.checkBox3_2.Text = "最小値チェックのテスト (-1000)";
+            this.checkBox3_2.UseVisualStyleBackColor = true;
+            this.checkBox3_2.CheckedChanged += new System.EventHandler(this.checkBox3_2_CheckedChanged);
+            // 
+            // checkBox3_1
+            // 
+            this.checkBox3_1.AutoSize = true;
+            this.checkBox3_1.Location = new System.Drawing.Point(18, 67);
+            this.checkBox3_1.Name = "checkBox3_1";
+            this.checkBox3_1.Size = new System.Drawing.Size(242, 22);
+            this.checkBox3_1.TabIndex = 1;
+            this.checkBox3_1.Text = "最大値チェックのテスト (1000)";
+            this.checkBox3_1.UseVisualStyleBackColor = true;
+            this.checkBox3_1.CheckedChanged += new System.EventHandler(this.checkBox3_1_CheckedChanged);
+            // 
+            // comboBoxInteger
+            // 
+            this.comboBoxInteger.ErrorMessage = "";
+            this.comboBoxInteger.ErrorMessageBoxEnabled = true;
+            this.comboBoxInteger.ErrorOutputEnabled = false;
+            this.comboBoxInteger.FormattingEnabled = true;
+            this.comboBoxInteger.Location = new System.Drawing.Point(18, 34);
+            this.comboBoxInteger.MaxValue = null;
+            this.comboBoxInteger.MinValue = null;
+            this.comboBoxInteger.Name = "comboBoxInteger";
+            this.comboBoxInteger.Size = new System.Drawing.Size(150, 26);
+            this.comboBoxInteger.StepValue = null;
+            this.comboBoxInteger.TabIndex = 9;
+            this.comboBoxInteger.Value = null;
+            // 
             // comboBoxPlus2
             // 
             this.comboBoxPlus2.ErrorMessage = "";
@@ -198,11 +298,25 @@
             this.comboBoxPlus2.TabIndex = 0;
             this.comboBoxPlus2.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus2_InputCheck);
             // 
+            // comboBoxPlus1
+            // 
+            this.comboBoxPlus1.ErrorMessage = "";
+            this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
+            this.comboBoxPlus1.ErrorOutputEnabled = false;
+            this.comboBoxPlus1.FormattingEnabled = true;
+            this.comboBoxPlus1.Location = new System.Drawing.Point(18, 34);
+            this.comboBoxPlus1.Name = "comboBoxPlus1";
+            this.comboBoxPlus1.Size = new System.Drawing.Size(166, 26);
+            this.comboBoxPlus1.TabIndex = 0;
+            this.comboBoxPlus1.Changed += new System.EventHandler(this.comboBoxPlus1_Changed);
+            this.comboBoxPlus1.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus1_InputCheck);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1333, 675);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -213,6 +327,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -232,6 +348,15 @@
         private System.Windows.Forms.Button button2_2;
         private System.Windows.Forms.Button button2_1;
         private CommonControlPlus.ComboBoxPlus comboBoxPlus2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button3_2;
+        private System.Windows.Forms.Button button3_1;
+        private System.Windows.Forms.CheckBox checkBox3_4;
+        private System.Windows.Forms.CheckBox checkBox3_3;
+        private System.Windows.Forms.CheckBox checkBox3_2;
+        private System.Windows.Forms.CheckBox checkBox3_1;
+        private CommonControlPlus.ComboBoxInteger comboBoxInteger;
     }
 }
 
