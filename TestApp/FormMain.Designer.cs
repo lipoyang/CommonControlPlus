@@ -51,9 +51,21 @@
             this.comboBoxInteger = new CommonControlPlus.ComboBoxInteger();
             this.comboBoxPlus2 = new CommonControlPlus.ComboBoxPlus();
             this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button4_2 = new System.Windows.Forms.Button();
+            this.button4_1 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button5_2 = new System.Windows.Forms.Button();
+            this.button5_1 = new System.Windows.Forms.Button();
+            this.comboBoxDouble = new CommonControlPlus.ComboBoxDouble();
+            this.comboBoxDecimal = new CommonControlPlus.ComboBoxDecimal();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -311,11 +323,123 @@
             this.comboBoxPlus1.Changed += new System.EventHandler(this.comboBoxPlus1_Changed);
             this.comboBoxPlus1.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus1_InputCheck);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboBoxDouble);
+            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.button4_2);
+            this.groupBox4.Controls.Add(this.button4_1);
+            this.groupBox4.Location = new System.Drawing.Point(500, 285);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(472, 159);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "ComboBoxDoubleのテスト";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(251, 84);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(159, 25);
+            this.textBox4.TabIndex = 9;
+            // 
+            // button4_2
+            // 
+            this.button4_2.Location = new System.Drawing.Point(18, 115);
+            this.button4_2.Name = "button4_2";
+            this.button4_2.Size = new System.Drawing.Size(213, 28);
+            this.button4_2.TabIndex = 8;
+            this.button4_2.Text = "項目選択/追加のテスト";
+            this.button4_2.UseVisualStyleBackColor = true;
+            this.button4_2.Click += new System.EventHandler(this.button4_2_Click);
+            // 
+            // button4_1
+            // 
+            this.button4_1.Location = new System.Drawing.Point(18, 81);
+            this.button4_1.Name = "button4_1";
+            this.button4_1.Size = new System.Drawing.Size(213, 28);
+            this.button4_1.TabIndex = 7;
+            this.button4_1.Text = "項目選択のテスト";
+            this.button4_1.UseVisualStyleBackColor = true;
+            this.button4_1.Click += new System.EventHandler(this.button4_1_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.comboBoxDecimal);
+            this.groupBox5.Controls.Add(this.textBox5);
+            this.groupBox5.Controls.Add(this.button5_2);
+            this.groupBox5.Controls.Add(this.button5_1);
+            this.groupBox5.Location = new System.Drawing.Point(500, 466);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(472, 159);
+            this.groupBox5.TabIndex = 10;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "ComboBoxDecimalのテスト";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(251, 84);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(159, 25);
+            this.textBox5.TabIndex = 9;
+            // 
+            // button5_2
+            // 
+            this.button5_2.Location = new System.Drawing.Point(18, 115);
+            this.button5_2.Name = "button5_2";
+            this.button5_2.Size = new System.Drawing.Size(213, 28);
+            this.button5_2.TabIndex = 8;
+            this.button5_2.Text = "項目選択/追加のテスト";
+            this.button5_2.UseVisualStyleBackColor = true;
+            this.button5_2.Click += new System.EventHandler(this.button5_2_Click);
+            // 
+            // button5_1
+            // 
+            this.button5_1.Location = new System.Drawing.Point(18, 81);
+            this.button5_1.Name = "button5_1";
+            this.button5_1.Size = new System.Drawing.Size(213, 28);
+            this.button5_1.TabIndex = 7;
+            this.button5_1.Text = "項目選択のテスト";
+            this.button5_1.UseVisualStyleBackColor = true;
+            this.button5_1.Click += new System.EventHandler(this.button5_1_Click);
+            // 
+            // comboBoxDouble
+            // 
+            this.comboBoxDouble.ErrorMessage = "";
+            this.comboBoxDouble.ErrorMessageBoxEnabled = false;
+            this.comboBoxDouble.ErrorOutputEnabled = false;
+            this.comboBoxDouble.FormattingEnabled = true;
+            this.comboBoxDouble.Location = new System.Drawing.Point(18, 34);
+            this.comboBoxDouble.MaxValue = null;
+            this.comboBoxDouble.MinValue = null;
+            this.comboBoxDouble.Name = "comboBoxDouble";
+            this.comboBoxDouble.Size = new System.Drawing.Size(150, 26);
+            this.comboBoxDouble.StepValue = null;
+            this.comboBoxDouble.TabIndex = 10;
+            this.comboBoxDouble.Value = null;
+            // 
+            // comboBoxDecimal
+            // 
+            this.comboBoxDecimal.ErrorMessage = "";
+            this.comboBoxDecimal.ErrorMessageBoxEnabled = false;
+            this.comboBoxDecimal.ErrorOutputEnabled = false;
+            this.comboBoxDecimal.FormattingEnabled = true;
+            this.comboBoxDecimal.Location = new System.Drawing.Point(18, 34);
+            this.comboBoxDecimal.MaxValue = null;
+            this.comboBoxDecimal.MinValue = null;
+            this.comboBoxDecimal.Name = "comboBoxDecimal";
+            this.comboBoxDecimal.Size = new System.Drawing.Size(150, 26);
+            this.comboBoxDecimal.StepValue = null;
+            this.comboBoxDecimal.TabIndex = 10;
+            this.comboBoxDecimal.Value = null;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 675);
+            this.ClientSize = new System.Drawing.Size(1003, 655);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -329,6 +453,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -357,6 +485,16 @@
         private System.Windows.Forms.CheckBox checkBox3_2;
         private System.Windows.Forms.CheckBox checkBox3_1;
         private CommonControlPlus.ComboBoxInteger comboBoxInteger;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button4_2;
+        private System.Windows.Forms.Button button4_1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button5_2;
+        private System.Windows.Forms.Button button5_1;
+        private CommonControlPlus.ComboBoxDouble comboBoxDouble;
+        private CommonControlPlus.ComboBoxDecimal comboBoxDecimal;
     }
 }
 

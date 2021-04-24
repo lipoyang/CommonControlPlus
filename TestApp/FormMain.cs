@@ -44,6 +44,18 @@ namespace TestApp
             comboBoxInteger.AddArray(intItems);
             comboBoxInteger.SelectedIndex = 0;
             comboBoxInteger.Changed += comboBoxInteger_Changed;
+
+            // ComboBoxDoubleのテスト
+            double[] doubleItems = { 1.11, 22.2, 333 };
+            comboBoxDouble.AddArray(doubleItems);
+            comboBoxDouble.SelectedIndex = 0;
+            comboBoxDouble.Changed += comboBoxDouble_Changed;
+
+            // ComboBoxDecimalのテスト
+            decimal[] decimalItems = { 1.11m, 22.2m, 333m };
+            comboBoxDecimal.AddArray(decimalItems);
+            comboBoxDecimal.SelectedIndex = 0;
+            comboBoxDecimal.Changed += comboBoxDecimal_Changed;
         }
 
         #region ComboBoxPlusのテスト1 (文字列)
@@ -316,6 +328,130 @@ namespace TestApp
             {
                 comboBoxInteger.ErrorMessage = "数値じゃないよ！";
                 return false;
+            }
+        }
+        #endregion
+
+        #region ComboBoxDoubleのテスト
+
+        // 項目選択のテスト
+        private void button4_1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double val = double.Parse(textBox4.Text);
+
+                if (comboBoxDouble.SelectItem(val))
+                {
+                    MessageBox.Show("見つかりました", "テスト");
+                }
+                else
+                {
+                    MessageBox.Show("見つかりませんでした", "テスト");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数値を指定してね！", "テスト");
+            }
+        }
+
+        // 項目選択/追加のテスト
+        private void button4_2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double val = double.Parse(textBox4.Text);
+
+                if (comboBoxDouble.SelectOrAddItem(val))
+                {
+                    MessageBox.Show("見つかりました", "テスト");
+                }
+                else
+                {
+                    MessageBox.Show("追加しました", "テスト");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数値を指定してね！", "テスト");
+            }
+        }
+
+        // 値が変化した時のイベント
+        private void comboBoxDouble_Changed(object sender, EventArgs e)
+        {
+            double? val = comboBoxDouble.Value;
+
+            if (val == null)
+            {
+                MessageBox.Show("無効な値です", "テスト");
+            }
+            else
+            {
+                MessageBox.Show("整数値が変化しました: " + val.ToString(), "テスト");
+            }
+        }
+        #endregion
+
+        #region ComboBoxDecimalのテスト
+
+        // 項目選択のテスト
+        private void button5_1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal val = decimal.Parse(textBox5.Text);
+
+                if (comboBoxDecimal.SelectItem(val))
+                {
+                    MessageBox.Show("見つかりました", "テスト");
+                }
+                else
+                {
+                    MessageBox.Show("見つかりませんでした", "テスト");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数値を指定してね！", "テスト");
+            }
+        }
+
+        // 項目選択/追加のテスト
+        private void button5_2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal val = decimal.Parse(textBox5.Text);
+
+                if (comboBoxDecimal.SelectOrAddItem(val))
+                {
+                    MessageBox.Show("見つかりました", "テスト");
+                }
+                else
+                {
+                    MessageBox.Show("追加しました", "テスト");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数値を指定してね！", "テスト");
+            }
+        }
+
+        // 値が変化した時のイベント
+        private void comboBoxDecimal_Changed(object sender, EventArgs e)
+        {
+            decimal? val = comboBoxDecimal.Value;
+
+            if (val == null)
+            {
+                MessageBox.Show("無効な値です", "テスト");
+            }
+            else
+            {
+                MessageBox.Show("整数値が変化しました: " + val.ToString(), "テスト");
             }
         }
         #endregion
