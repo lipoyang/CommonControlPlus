@@ -84,7 +84,8 @@ namespace CommonControlPlus
         {
             this.SelectedItem = obj;
 
-            if(this.SelectedItem == obj)
+            if((this.SelectedItem != null) &&
+               (this.SelectedItem.ToString() == obj.ToString()))
             {
                 return true;
             }
@@ -103,7 +104,8 @@ namespace CommonControlPlus
         {
             this.SelectedItem = obj;
 
-            if (this.SelectedItem == obj)
+            if ((this.SelectedItem != null) &&
+               (this.SelectedItem.ToString() == obj.ToString()))
             {
                 return true;
             }
@@ -150,24 +152,28 @@ namespace CommonControlPlus
         // キーが押されたとき
         private void ComboBoxPlus_KeyDown(object sender, KeyEventArgs e)
         {
-            //Enterキーが押されたか？
-            if (e.KeyCode == Keys.Enter)
+            // 前回の選択値から変更されているか？
+            if (OldText != this.Text)
             {
-                // 入力チェック
-                if (_InputCheck(this.Text))
+                //Enterキーが押されたか？
+                if (e.KeyCode == Keys.Enter)
                 {
-                    // 前回の選択値を更新し、イベント発行
-                    OldItem = this.SelectedItem;
-                    OldText = this.Text;
-                    Changed(sender, e);
-                }
-                else
-                {
-                    // 前回の選択値に戻す
-                    this.SelectedItem = OldItem;
-                    if (OldItem == null) this.Text = OldText;
+                    // 入力チェック
+                    if (_InputCheck(this.Text))
+                    {
+                        // 前回の選択値を更新し、イベント発行
+                        OldItem = this.SelectedItem;
+                        OldText = this.Text;
+                        Changed(sender, e);
+                    }
+                    else
+                    {
+                        // 前回の選択値に戻す
+                        this.SelectedItem = OldItem;
+                        if (OldItem == null) this.Text = OldText;
 
-                    ErrorMessageOutput();
+                        ErrorMessageOutput();
+                    }
                 }
             }
         }

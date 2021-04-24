@@ -28,54 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBoxPlus3 = new CommonControlPlus.ComboBoxPlus();
-            this.comboBoxPlus2 = new CommonControlPlus.ComboBoxPlus();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1_2 = new System.Windows.Forms.Button();
+            this.button1_1 = new System.Windows.Forms.Button();
+            this.checkBox1_4 = new System.Windows.Forms.CheckBox();
+            this.checkBox1_3 = new System.Windows.Forms.CheckBox();
+            this.checkBox1_2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1_1 = new System.Windows.Forms.CheckBox();
             this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
-            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // groupBox1
             // 
-            this.button1.Location = new System.Drawing.Point(102, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button1_2);
+            this.groupBox1.Controls.Add(this.button1_1);
+            this.groupBox1.Controls.Add(this.checkBox1_4);
+            this.groupBox1.Controls.Add(this.checkBox1_3);
+            this.groupBox1.Controls.Add(this.checkBox1_2);
+            this.groupBox1.Controls.Add(this.checkBox1_1);
+            this.groupBox1.Controls.Add(this.comboBoxPlus1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(472, 255);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ComboBoxPlusのテスト1 (文字列)";
             // 
-            // comboBox1
+            // textBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(102, 152);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 1;
+            this.textBox1.Location = new System.Drawing.Point(251, 182);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(159, 25);
+            this.textBox1.TabIndex = 9;
             // 
-            // comboBoxPlus3
+            // button1_2
             // 
-            this.comboBoxPlus3.ErrorMessage = "";
-            this.comboBoxPlus3.ErrorMessageBoxEnabled = false;
-            this.comboBoxPlus3.ErrorOutputEnabled = false;
-            this.comboBoxPlus3.FormattingEnabled = true;
-            this.comboBoxPlus3.Location = new System.Drawing.Point(271, 59);
-            this.comboBoxPlus3.Name = "comboBoxPlus3";
-            this.comboBoxPlus3.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxPlus3.TabIndex = 4;
+            this.button1_2.Location = new System.Drawing.Point(18, 214);
+            this.button1_2.Name = "button1_2";
+            this.button1_2.Size = new System.Drawing.Size(213, 28);
+            this.button1_2.TabIndex = 8;
+            this.button1_2.Text = "項目選択/追加のテスト";
+            this.button1_2.UseVisualStyleBackColor = true;
+            this.button1_2.Click += new System.EventHandler(this.button1_2_Click);
             // 
-            // comboBoxPlus2
+            // button1_1
             // 
-            this.comboBoxPlus2.ErrorMessage = "";
-            this.comboBoxPlus2.ErrorMessageBoxEnabled = false;
-            this.comboBoxPlus2.ErrorOutputEnabled = false;
-            this.comboBoxPlus2.FormattingEnabled = true;
-            this.comboBoxPlus2.Location = new System.Drawing.Point(510, 234);
-            this.comboBoxPlus2.Name = "comboBoxPlus2";
-            this.comboBoxPlus2.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxPlus2.TabIndex = 3;
-            this.comboBoxPlus2.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus2_UserInputCheck);
+            this.button1_1.Location = new System.Drawing.Point(18, 180);
+            this.button1_1.Name = "button1_1";
+            this.button1_1.Size = new System.Drawing.Size(213, 28);
+            this.button1_1.TabIndex = 7;
+            this.button1_1.Text = "項目選択のテスト";
+            this.button1_1.UseVisualStyleBackColor = true;
+            this.button1_1.Click += new System.EventHandler(this.button1_1_Click);
+            // 
+            // checkBox1_4
+            // 
+            this.checkBox1_4.AutoSize = true;
+            this.checkBox1_4.Location = new System.Drawing.Point(18, 151);
+            this.checkBox1_4.Name = "checkBox1_4";
+            this.checkBox1_4.Size = new System.Drawing.Size(205, 22);
+            this.checkBox1_4.TabIndex = 4;
+            this.checkBox1_4.Text = "エラーをコンソールに出す";
+            this.checkBox1_4.UseVisualStyleBackColor = true;
+            this.checkBox1_4.CheckedChanged += new System.EventHandler(this.checkBox1_4_CheckedChanged);
+            // 
+            // checkBox1_3
+            // 
+            this.checkBox1_3.AutoSize = true;
+            this.checkBox1_3.Location = new System.Drawing.Point(18, 123);
+            this.checkBox1_3.Name = "checkBox1_3";
+            this.checkBox1_3.Size = new System.Drawing.Size(254, 22);
+            this.checkBox1_3.TabIndex = 3;
+            this.checkBox1_3.Text = "エラーをメッセージボックスに出す";
+            this.checkBox1_3.UseVisualStyleBackColor = true;
+            this.checkBox1_3.CheckedChanged += new System.EventHandler(this.checkBox1_3_CheckedChanged);
+            // 
+            // checkBox1_2
+            // 
+            this.checkBox1_2.AutoSize = true;
+            this.checkBox1_2.Location = new System.Drawing.Point(18, 95);
+            this.checkBox1_2.Name = "checkBox1_2";
+            this.checkBox1_2.Size = new System.Drawing.Size(284, 22);
+            this.checkBox1_2.TabIndex = 2;
+            this.checkBox1_2.Text = "ユーザー定義の入力チェックのテスト";
+            this.checkBox1_2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1_1
+            // 
+            this.checkBox1_1.AutoSize = true;
+            this.checkBox1_1.Location = new System.Drawing.Point(18, 67);
+            this.checkBox1_1.Name = "checkBox1_1";
+            this.checkBox1_1.Size = new System.Drawing.Size(280, 22);
+            this.checkBox1_1.TabIndex = 1;
+            this.checkBox1_1.Text = "値が変化したときのイベントのテスト";
+            this.checkBox1_1.UseVisualStyleBackColor = true;
             // 
             // comboBoxPlus1
             // 
@@ -83,47 +132,39 @@
             this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
             this.comboBoxPlus1.ErrorOutputEnabled = false;
             this.comboBoxPlus1.FormattingEnabled = true;
-            this.comboBoxPlus1.Location = new System.Drawing.Point(271, 129);
+            this.comboBoxPlus1.Location = new System.Drawing.Point(18, 34);
             this.comboBoxPlus1.Name = "comboBoxPlus1";
-            this.comboBoxPlus1.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxPlus1.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(150, 234);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.comboBoxPlus1.Size = new System.Drawing.Size(166, 26);
+            this.comboBoxPlus1.TabIndex = 0;
+            this.comboBoxPlus1.Changed += new System.EventHandler(this.comboBoxPlus1_Changed);
+            this.comboBoxPlus1.InputCheck += new CommonControlPlus.ComboBoxPlus.InputCheckFunction(this.comboBoxPlus1_InputCheck);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBoxPlus3);
-            this.Controls.Add(this.comboBoxPlus2);
-            this.Controls.Add(this.comboBoxPlus1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1333, 675);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Text = "テスト";
             this.Load += new System.EventHandler(this.FormMain_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private CommonControlPlus.ComboBoxPlus comboBoxPlus1;
-        private CommonControlPlus.ComboBoxPlus comboBoxPlus2;
-        private CommonControlPlus.ComboBoxPlus comboBoxPlus3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1_4;
+        private System.Windows.Forms.CheckBox checkBox1_3;
+        private System.Windows.Forms.CheckBox checkBox1_2;
+        private System.Windows.Forms.CheckBox checkBox1_1;
+        private System.Windows.Forms.Button button1_1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1_2;
     }
 }
 
