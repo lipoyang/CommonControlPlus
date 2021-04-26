@@ -59,7 +59,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public Type? Value
+        public Type Value
         {
             get
             {
@@ -69,6 +69,7 @@ namespace CommonControlPlus
             {
                 _Value = value;
                 this.Text = ((dynamic)_Value).ToString(this.FormatString);
+                OldText = this.Text;
             }
         }
         
@@ -77,14 +78,29 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public string FormatString { set; get; } = "";
+        public string FormatString
+        {
+            get
+            {
+                return _FormatString;
+            }
+            set
+            {
+                _FormatString = value;
+                this.Text = ((dynamic)_Value).ToString(this.FormatString);
+                OldText = this.Text;
+            }
+        }
 
         #endregion
 
         #region 内部処理
 
         // 数値
-        private Type? _Value = null;
+        private Type _Value = (dynamic)0;
+        
+        // 数値書式指定文字列
+        private string _FormatString = "";
 
         // 既定の入力値チェック
         private bool DefaultInputCheck(Type inputVal)
@@ -170,9 +186,9 @@ namespace CommonControlPlus
                 {
                     // ユーザー定義の入力値チェック
                     result = InputValueCheck(inputVal);
-               }
+                }
                 else
-               {
+                {
                     // 既定の入力値チェック
                     result = DefaultInputCheck(inputVal);
                 }
@@ -187,6 +203,7 @@ namespace CommonControlPlus
                 ErrorMessageOutput();
             }
             this.Text = ((dynamic)_Value).ToString(this.FormatString);
+            OldText = this.Text;
             
             return result;
         }

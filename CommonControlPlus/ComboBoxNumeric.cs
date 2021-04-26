@@ -59,7 +59,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public Type? Value
+        public Type Value
         {
             get
             {
@@ -85,7 +85,7 @@ namespace CommonControlPlus
         #region 内部処理
 
         // 数値
-        private Type? _Value = null;
+        private Type _Value = (dynamic)0;
 
         // 既定の入力値チェック
         private bool DefaultInputCheck(Type inputVal)

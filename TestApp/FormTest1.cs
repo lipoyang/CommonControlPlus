@@ -381,7 +381,7 @@ namespace TestApp
             }
             else
             {
-                MessageBox.Show("整数値が変化しました: " + val.ToString(), "テスト");
+                MessageBox.Show("数値が変化しました: " + val.ToString(), "テスト");
             }
         }
         #endregion
@@ -443,7 +443,7 @@ namespace TestApp
             }
             else
             {
-                MessageBox.Show("整数値が変化しました: " + val.ToString(), "テスト");
+                MessageBox.Show("数値が変化しました: " + val.ToString(), "テスト");
             }
         }
         #endregion

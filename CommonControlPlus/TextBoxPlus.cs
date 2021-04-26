@@ -78,7 +78,7 @@ namespace CommonControlPlus
         #region 内部処理
 
         // 前回のテキスト (フォーカスが外れたときの判定用)
-        private string OldText = "";
+        protected string OldText = "";
 
         // 初期化
         private void InitializeComponent()
@@ -87,10 +87,17 @@ namespace CommonControlPlus
             // 
             // TextBoxPlus
             // 
+            this.Enter += new System.EventHandler(this.TextBoxPlus_Enter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxPlus_KeyDown);
             this.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxPlus_Validating);
             this.ResumeLayout(false);
 
+        }
+
+        // フォーカスが入ったとき
+        private void TextBoxPlus_Enter(object sender, EventArgs e)
+        {
+            OldText = this.Text;
         }
 
         // キーが押されたとき

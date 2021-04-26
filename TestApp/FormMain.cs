@@ -23,5 +23,12 @@ namespace TestApp
             var form = new FormTest1();
             form.Show();
         }
+
+        // 拡張版TextBoxのテスト
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form = new FormTest2();
+            form.Show();
+        }
     }
 }
