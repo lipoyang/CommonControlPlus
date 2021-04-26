@@ -57,8 +57,6 @@ namespace CommonControlPlus
         /// <summary>
         /// 数値
         /// </summary>
-        [Category("拡張機能")]
-        [Browsable(true)]
         public Type Value
         {
             get

@@ -36,11 +36,14 @@
             this.checkBox1_3 = new System.Windows.Forms.CheckBox();
             this.checkBox1_2 = new System.Windows.Forms.CheckBox();
             this.checkBox1_1 = new System.Windows.Forms.CheckBox();
+            this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2_2 = new System.Windows.Forms.Button();
             this.button2_1 = new System.Windows.Forms.Button();
+            this.comboBoxPlus2 = new CommonControlPlus.ComboBoxPlus();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBoxInteger = new CommonControlPlus.ComboBoxInteger();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button3_2 = new System.Windows.Forms.Button();
             this.button3_1 = new System.Windows.Forms.Button();
@@ -49,18 +52,15 @@
             this.checkBox3_2 = new System.Windows.Forms.CheckBox();
             this.checkBox3_1 = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBoxDouble = new CommonControlPlus.ComboBoxDouble();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button4_2 = new System.Windows.Forms.Button();
             this.button4_1 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.comboBoxDecimal = new CommonControlPlus.ComboBoxDecimal();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button5_2 = new System.Windows.Forms.Button();
             this.button5_1 = new System.Windows.Forms.Button();
-            this.comboBoxDecimal = new CommonControlPlus.ComboBoxDecimal();
-            this.comboBoxDouble = new CommonControlPlus.ComboBoxDouble();
-            this.comboBoxInteger = new CommonControlPlus.ComboBoxInteger();
-            this.comboBoxPlus2 = new CommonControlPlus.ComboBoxPlus();
-            this.comboBoxPlus1 = new CommonControlPlus.ComboBoxPlus();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -163,6 +163,20 @@
             this.checkBox1_1.Text = "値が変化したときのイベントのテスト";
             this.checkBox1_1.UseVisualStyleBackColor = true;
             // 
+            // comboBoxPlus1
+            // 
+            this.comboBoxPlus1.ErrorMessage = "";
+            this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
+            this.comboBoxPlus1.ErrorOutputEnabled = false;
+            this.comboBoxPlus1.FormattingEnabled = true;
+            this.comboBoxPlus1.Location = new System.Drawing.Point(11, 23);
+            this.comboBoxPlus1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxPlus1.Name = "comboBoxPlus1";
+            this.comboBoxPlus1.Size = new System.Drawing.Size(101, 20);
+            this.comboBoxPlus1.TabIndex = 0;
+            this.comboBoxPlus1.Changed += new System.EventHandler(this.comboBoxPlus1_Changed);
+            this.comboBoxPlus1.InputTextCheck += new CommonControlPlus.ComboBoxPlus.InputTextCheckFunction(this.comboBoxPlus1_InputCheck);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBox2);
@@ -209,6 +223,19 @@
             this.button2_1.UseVisualStyleBackColor = true;
             this.button2_1.Click += new System.EventHandler(this.button2_1_Click);
             // 
+            // comboBoxPlus2
+            // 
+            this.comboBoxPlus2.ErrorMessage = "";
+            this.comboBoxPlus2.ErrorMessageBoxEnabled = true;
+            this.comboBoxPlus2.ErrorOutputEnabled = false;
+            this.comboBoxPlus2.FormattingEnabled = true;
+            this.comboBoxPlus2.Location = new System.Drawing.Point(11, 23);
+            this.comboBoxPlus2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxPlus2.Name = "comboBoxPlus2";
+            this.comboBoxPlus2.Size = new System.Drawing.Size(101, 20);
+            this.comboBoxPlus2.TabIndex = 0;
+            this.comboBoxPlus2.InputTextCheck += new CommonControlPlus.ComboBoxPlus.InputTextCheckFunction(this.comboBoxPlus2_InputCheck);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.comboBoxInteger);
@@ -227,6 +254,21 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ComboBoxIntegerのテスト";
+            // 
+            // comboBoxInteger
+            // 
+            this.comboBoxInteger.ErrorMessage = "";
+            this.comboBoxInteger.ErrorMessageBoxEnabled = true;
+            this.comboBoxInteger.ErrorOutputEnabled = false;
+            this.comboBoxInteger.FormattingEnabled = true;
+            this.comboBoxInteger.Location = new System.Drawing.Point(11, 23);
+            this.comboBoxInteger.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxInteger.MaxValue = null;
+            this.comboBoxInteger.MinValue = null;
+            this.comboBoxInteger.Name = "comboBoxInteger";
+            this.comboBoxInteger.Size = new System.Drawing.Size(92, 20);
+            this.comboBoxInteger.StepValue = null;
+            this.comboBoxInteger.TabIndex = 9;
             // 
             // textBox3
             // 
@@ -321,6 +363,21 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ComboBoxDoubleのテスト";
             // 
+            // comboBoxDouble
+            // 
+            this.comboBoxDouble.ErrorMessage = "";
+            this.comboBoxDouble.ErrorMessageBoxEnabled = true;
+            this.comboBoxDouble.ErrorOutputEnabled = false;
+            this.comboBoxDouble.FormattingEnabled = true;
+            this.comboBoxDouble.Location = new System.Drawing.Point(11, 23);
+            this.comboBoxDouble.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxDouble.MaxValue = null;
+            this.comboBoxDouble.MinValue = null;
+            this.comboBoxDouble.Name = "comboBoxDouble";
+            this.comboBoxDouble.Size = new System.Drawing.Size(92, 20);
+            this.comboBoxDouble.StepValue = null;
+            this.comboBoxDouble.TabIndex = 10;
+            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(151, 56);
@@ -366,6 +423,21 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "ComboBoxDecimalのテスト";
             // 
+            // comboBoxDecimal
+            // 
+            this.comboBoxDecimal.ErrorMessage = "";
+            this.comboBoxDecimal.ErrorMessageBoxEnabled = true;
+            this.comboBoxDecimal.ErrorOutputEnabled = false;
+            this.comboBoxDecimal.FormattingEnabled = true;
+            this.comboBoxDecimal.Location = new System.Drawing.Point(11, 23);
+            this.comboBoxDecimal.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxDecimal.MaxValue = null;
+            this.comboBoxDecimal.MinValue = null;
+            this.comboBoxDecimal.Name = "comboBoxDecimal";
+            this.comboBoxDecimal.Size = new System.Drawing.Size(92, 20);
+            this.comboBoxDecimal.StepValue = null;
+            this.comboBoxDecimal.TabIndex = 10;
+            // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(151, 56);
@@ -395,81 +467,6 @@
             this.button5_1.Text = "項目選択のテスト";
             this.button5_1.UseVisualStyleBackColor = true;
             this.button5_1.Click += new System.EventHandler(this.button5_1_Click);
-            // 
-            // comboBoxDecimal
-            // 
-            this.comboBoxDecimal.ErrorMessage = "";
-            this.comboBoxDecimal.ErrorMessageBoxEnabled = true;
-            this.comboBoxDecimal.ErrorOutputEnabled = false;
-            this.comboBoxDecimal.FormattingEnabled = true;
-            this.comboBoxDecimal.Location = new System.Drawing.Point(11, 23);
-            this.comboBoxDecimal.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxDecimal.MaxValue = null;
-            this.comboBoxDecimal.MinValue = null;
-            this.comboBoxDecimal.Name = "comboBoxDecimal";
-            this.comboBoxDecimal.Size = new System.Drawing.Size(92, 20);
-            this.comboBoxDecimal.StepValue = null;
-            this.comboBoxDecimal.TabIndex = 10;
-            this.comboBoxDecimal.Value = 0;
-            // 
-            // comboBoxDouble
-            // 
-            this.comboBoxDouble.ErrorMessage = "";
-            this.comboBoxDouble.ErrorMessageBoxEnabled = true;
-            this.comboBoxDouble.ErrorOutputEnabled = false;
-            this.comboBoxDouble.FormattingEnabled = true;
-            this.comboBoxDouble.Location = new System.Drawing.Point(11, 23);
-            this.comboBoxDouble.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxDouble.MaxValue = null;
-            this.comboBoxDouble.MinValue = null;
-            this.comboBoxDouble.Name = "comboBoxDouble";
-            this.comboBoxDouble.Size = new System.Drawing.Size(92, 20);
-            this.comboBoxDouble.StepValue = null;
-            this.comboBoxDouble.TabIndex = 10;
-            this.comboBoxDouble.Value = 0;
-            // 
-            // comboBoxInteger
-            // 
-            this.comboBoxInteger.ErrorMessage = "";
-            this.comboBoxInteger.ErrorMessageBoxEnabled = true;
-            this.comboBoxInteger.ErrorOutputEnabled = false;
-            this.comboBoxInteger.FormattingEnabled = true;
-            this.comboBoxInteger.Location = new System.Drawing.Point(11, 23);
-            this.comboBoxInteger.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxInteger.MaxValue = null;
-            this.comboBoxInteger.MinValue = null;
-            this.comboBoxInteger.Name = "comboBoxInteger";
-            this.comboBoxInteger.Size = new System.Drawing.Size(92, 20);
-            this.comboBoxInteger.StepValue = null;
-            this.comboBoxInteger.TabIndex = 9;
-            this.comboBoxInteger.Value = 0;
-            // 
-            // comboBoxPlus2
-            // 
-            this.comboBoxPlus2.ErrorMessage = "";
-            this.comboBoxPlus2.ErrorMessageBoxEnabled = true;
-            this.comboBoxPlus2.ErrorOutputEnabled = false;
-            this.comboBoxPlus2.FormattingEnabled = true;
-            this.comboBoxPlus2.Location = new System.Drawing.Point(11, 23);
-            this.comboBoxPlus2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxPlus2.Name = "comboBoxPlus2";
-            this.comboBoxPlus2.Size = new System.Drawing.Size(101, 20);
-            this.comboBoxPlus2.TabIndex = 0;
-            this.comboBoxPlus2.InputTextCheck += new CommonControlPlus.ComboBoxPlus.InputTextCheckFunction(this.comboBoxPlus2_InputCheck);
-            // 
-            // comboBoxPlus1
-            // 
-            this.comboBoxPlus1.ErrorMessage = "";
-            this.comboBoxPlus1.ErrorMessageBoxEnabled = false;
-            this.comboBoxPlus1.ErrorOutputEnabled = false;
-            this.comboBoxPlus1.FormattingEnabled = true;
-            this.comboBoxPlus1.Location = new System.Drawing.Point(11, 23);
-            this.comboBoxPlus1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxPlus1.Name = "comboBoxPlus1";
-            this.comboBoxPlus1.Size = new System.Drawing.Size(101, 20);
-            this.comboBoxPlus1.TabIndex = 0;
-            this.comboBoxPlus1.Changed += new System.EventHandler(this.comboBoxPlus1_Changed);
-            this.comboBoxPlus1.InputTextCheck += new CommonControlPlus.ComboBoxPlus.InputTextCheckFunction(this.comboBoxPlus1_InputCheck);
             // 
             // FormTest1
             // 

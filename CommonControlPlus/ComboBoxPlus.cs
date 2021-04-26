@@ -151,10 +151,17 @@ namespace CommonControlPlus
             // ComboBoxPlus
             // 
             this.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPlus_SelectedIndexChanged);
+            this.Enter += new System.EventHandler(this.ComboBoxPlus_Enter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ComboBoxPlus_KeyDown);
             this.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBoxPlus_Validating);
             this.ResumeLayout(false);
 
+        }
+
+        // フォーカスが入ったとき
+        private void ComboBoxPlus_Enter(object sender, EventArgs e)
+        {
+            OldText = this.Text;
         }
 
         // リスト選択が変更されたとき
