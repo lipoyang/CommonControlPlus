@@ -27,7 +27,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        event InputValueCheckFunction InputValueCheck = null;
+        public event InputValueCheckFunction InputValueCheck = null;
 
         #endregion
 
@@ -178,7 +178,6 @@ namespace CommonControlPlus
         #endregion
     }
 
-
     /// <summary>
     /// double型数値用の拡張版テキストボックス
     /// </summary>
@@ -199,5 +198,4 @@ namespace CommonControlPlus
     public class TextBoxInteger : TextBoxNumeric<int>
     {
     }
-
 }

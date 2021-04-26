@@ -246,11 +246,11 @@ namespace TestApp
         {
             if (checkBox3_4.Checked)
             {
-                comboBoxInteger.InputCheck += comboBoxInteger_InputCheck;
+                comboBoxInteger.InputValueCheck += comboBoxInteger_InputCheck;
             }
             else
             {
-                comboBoxInteger.InputCheck -= comboBoxInteger_InputCheck;
+                comboBoxInteger.InputValueCheck -= comboBoxInteger_InputCheck;
             }
         }
 
@@ -272,7 +272,7 @@ namespace TestApp
             }
             catch
             {
-                MessageBox.Show("数値を指定してね！", "テスト");
+                MessageBox.Show("整数値を指定してね！", "テスト");
             }
         }
         // 項目選択/追加のテスト
@@ -293,7 +293,7 @@ namespace TestApp
             }
             catch
             {
-                MessageBox.Show("数値を指定してね！", "テスト");
+                MessageBox.Show("整数値を指定してね！", "テスト");
             }
         }
         // 値が変化した時のイベント
@@ -311,24 +311,14 @@ namespace TestApp
             }
         }
         // ユーザー定義の入力チェック関数
-        private bool comboBoxInteger_InputCheck(string text)
+        private bool comboBoxInteger_InputCheck(int val)
         {
-            try
+            if(val % 100 != 0)
             {
-                int val = int.Parse(text);
-
-                if(val % 100 != 0)
-                {
-                    comboBoxInteger.ErrorMessage = "100で割り切れないよ！";
-                    return false;
-                }
-                return true;
-            }
-            catch
-            {
-                comboBoxInteger.ErrorMessage = "数値じゃないよ！";
+                comboBoxInteger.ErrorMessage = "100で割り切れないよ！";
                 return false;
             }
+            return true;
         }
         #endregion
 

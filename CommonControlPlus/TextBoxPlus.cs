@@ -35,7 +35,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        event InputTextCheckFunction InputTextCheck = null;
+        public event InputTextCheckFunction InputTextCheck = null;
 
         #endregion
 
@@ -61,6 +61,7 @@ namespace CommonControlPlus
         [Category("拡張機能")]
         [Browsable(true)]
         public string ErrorMessage { set; get; } = "";
+
         #endregion
 
         #region コンストラクタ

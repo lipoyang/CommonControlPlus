@@ -24,18 +24,18 @@ namespace CommonControlPlus
         public event EventHandler Changed = delegate { };
 
         /// <summary>
-        /// 入力チェック関数の型
+        /// 入力文字列チェック関数の型
         /// </summary>
         /// <param name="inputText">入力された文字列</param>
         /// <returns>OK(true)かNG(false)か</returns>
-        public delegate bool InputCheckFunction(string inputText);
+        public delegate bool InputTextCheckFunction(string inputText);
 
         /// <summary>
-        /// 入力チェック関数をここに設定します
+        /// 入力文字列チェック関数をここに設定します
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public event InputCheckFunction InputCheck = null;
+        public event InputTextCheckFunction InputTextCheck = null;
 
         #endregion
 
@@ -139,9 +139,9 @@ namespace CommonControlPlus
         #region 内部処理
 
         // 前回のテキスト (フォーカスが外れたときの判定用)
-        private string OldText = "";
+        protected string OldText = "";
         // 前回の選択アイテム (フォーカスが外れたときの判定用)
-        private object OldItem = null;
+        protected object OldItem = null;
 
         // 初期化
         private void InitializeComponent()
@@ -169,64 +169,41 @@ namespace CommonControlPlus
         // キーが押されたとき
         private void ComboBoxPlus_KeyDown(object sender, KeyEventArgs e)
         {
-            // 前回の選択値から変更されているか？
-            if (OldText != this.Text)
+            //Enterキーが押されたか？
+            if (e.KeyCode == Keys.Enter)
             {
-                //Enterキーが押されたか？
-                if (e.KeyCode == Keys.Enter)
+                // 前回の値から変更されているか？
+                if (OldText != this.Text)
                 {
-                    // 入力チェック
-                    if (_InputCheck(this.Text))
+                    // 入力チェックと値の更新
+                    if (InputCheckAndUpdate(this.Text))
                     {
-                        // 前回の選択値を更新し、イベント発行
-                        OldItem = this.SelectedItem;
-                        OldText = this.Text;
-                        Changed(sender, e);
-                    }
-                    else
-                    {
-                        ErrorMessageOutput();
-
-                        // 前回の選択値に戻す
-                        this.SelectedItem = OldItem;
-                        if (OldItem == null) this.Text = OldText;
+                        Changed(sender, e); // イベント発行
                     }
                 }
             }
         }
 
-        // フォーカスが外れたとき
-        //private void ComboBoxPlus_Leave(object sender, EventArgs e)
-
         // フォーカスが外れたときの検証イベント
         private void ComboBoxPlus_Validating(object sender, CancelEventArgs e)
         {
-            // 前回の選択値から変更されているか？
+            // 前回の値から変更されているか？
             if (OldText != this.Text)
             {
-                // 入力チェック
-                if (_InputCheck(this.Text))
+                // 入力チェックと値の更新
+                if (InputCheckAndUpdate(this.Text))
                 {
-                    // 前回の選択値を更新し、イベント発行
-                    OldItem = this.SelectedItem;
-                    OldText = this.Text;
-                    Changed(sender, e);
+                    Changed(sender, e); // イベント発行
                 }
                 else
                 {
-                    ErrorMessageOutput();
-
-                    // 前回の選択値に戻す
-                    this.SelectedItem = OldItem;
-                    if (OldItem == null) this.Text = OldText;
-
                     e.Cancel = true; // 検証の結果、キャンセルを返す
                 }
             }
         }
 
         // エラーメッセージの出力
-        private void ErrorMessageOutput()
+        protected void ErrorMessageOutput()
         {
             if (ErrorMessage != "")
             {
@@ -241,27 +218,32 @@ namespace CommonControlPlus
             }
         }
 
-        // 入力チェック関数 (ユーザー定義または既定の入力チェック関数を評価)
-        private bool _InputCheck(string text)
+        // 入力チェックと値の更新
+        virtual protected bool InputCheckAndUpdate(string text)
         {
-            // ユーザー定義の入力チェック関数
-            if(InputCheck != null)
+            bool result = true;
+            if (InputTextCheck != null)
             {
-                return InputCheck(text);
+                // ユーザー定義の入力チェック
+                result = InputTextCheck(text);
             }
-            // 既定の入力チェック関数
+            if (result)
+            {
+            	// 前回の選択値を更新
+                OldItem = this.SelectedItem;
+                OldText = this.Text;
+            }
             else
             {
-                return DefaultInputCheck(text);
+                ErrorMessageOutput();
+
+                // 前回の選択値に戻す
+                this.SelectedItem = OldItem;
+                if (OldItem == null) this.Text = OldText;
             }
+            return result;
         }
 
-        // 既定の入力チェック関数
-        virtual protected bool DefaultInputCheck(string text)
-        {
-            // 常にtrue
-            return true;
-        }
         #endregion
     }
 }
