@@ -49,12 +49,14 @@ namespace TestApp
             double[] doubleItems = { 1.11, 22.2, 333 };
             comboBoxDouble.AddArray(doubleItems);
             comboBoxDouble.SelectedIndex = 0;
+            comboBoxDouble.FormatString = "F2";
             comboBoxDouble.Changed += comboBoxDouble_Changed;
 
             // ComboBoxDecimalのテスト
             decimal[] decimalItems = { 1.11m, 22.2m, 333m };
             comboBoxDecimal.AddArray(decimalItems);
             comboBoxDecimal.SelectedIndex = 0;
+            comboBoxDecimal.FormatString = "F3";
             comboBoxDecimal.Changed += comboBoxDecimal_Changed;
         }
 

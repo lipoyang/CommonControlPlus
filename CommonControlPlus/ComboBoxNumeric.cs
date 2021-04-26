@@ -90,40 +90,44 @@ namespace CommonControlPlus
         // 既定の入力値チェック
         private bool DefaultInputCheck(Type inputVal)
         {
-        	            // 最小値・最大値のチェック
-            if ((MinValue != null) && (MaxValue != null))
+            dynamic min = MinValue;
+            dynamic max = MaxValue;
+            dynamic step = StepValue;
+
+            // 最小値・最大値のチェック
+            if ((min != null) && (max != null))
             {
-                if ((inputVal.CompareTo((Type)MinValue) < 0) ||
-                   (inputVal.CompareTo((Type)MaxValue) > 0))
+                if ((inputVal.CompareTo(min) < 0) ||
+                   (inputVal.CompareTo(max) > 0))
                 {
-                    ErrorMessage = MinValue.ToString() + "～" +
-                                   MaxValue.ToString() + "の範囲の値を入力してください";
+                    ErrorMessage = min.ToString(this.FormatString) + "～" +
+                                   max.ToString(this.FormatString) + "の範囲の値を入力してください";
                     return false;
                 }
             }
             // 最小値のみのチェック
-            else if (MinValue != null)
+            else if (min != null)
             {
-                if (inputVal.CompareTo((Type)MinValue) < 0)
+                if (inputVal.CompareTo(min) < 0)
                 {
-                    ErrorMessage = MinValue.ToString() + "以上の値を入力してください";
+                    ErrorMessage = min.ToString(this.FormatString) + "以上の値を入力してください";
                     return false;
                 }
             }
             // 最大値のみのチェック
             else if (MaxValue != null)
             {
-                if (inputVal.CompareTo((Type)MaxValue) > 0)
+                if (inputVal.CompareTo(max) > 0)
                 {
-                    ErrorMessage = MaxValue.ToString() + "以下の値を入力してください";
+                    ErrorMessage = max.ToString(this.FormatString) + "以下の値を入力してください";
                     return false;
                 }
             }
             // 最小ステップのチェック
-            if ((StepValue != null) && (StepValue != (dynamic)0) &&
-                (((dynamic)inputVal % StepValue) != 0))
+            if ((step != null) && (step != 0) &&
+                (((dynamic)inputVal % step) != 0))
             {
-                ErrorMessage = StepValue.ToString() + "の倍数を入力してください";
+                ErrorMessage = step.ToString(this.FormatString) + "の倍数を入力してください";
                 return false;
             }
             return true;
@@ -179,8 +183,12 @@ namespace CommonControlPlus
             {
                 // 前回の選択値を更新
                 OldItem = this.SelectedItem;
-                OldText = this.Text;
-                _Value = inputVal;
+                if (OldItem == null)
+                {
+                    _Value = inputVal;
+                    this.Text = ((dynamic)_Value).ToString(this.FormatString);
+                    OldText = this.Text;
+                }
             }
             else
             {
