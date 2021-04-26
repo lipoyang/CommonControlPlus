@@ -7,3 +7,7 @@ Windows Formsのコモンコントロールの拡張
 | ComboBoxInteger | int型用拡張版ComboBox |
 | ComboBoxDouble | double型用拡張版ComboBox |
 | ComboBoxDecimal | decimal型用拡張版ComboBox |
+| TextBoxPlus | 拡張版TextBox |
+| TextBoxInteger | int型用拡張版TextBox |
+| TextBoxDouble | double型用拡張版TextBox |
+| TextBoxDecimal | decimal型用拡張版TextBox |
