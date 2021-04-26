@@ -124,10 +124,11 @@ namespace CommonControlPlus
         // 入力チェックと値の更新
         override protected bool InputCheckAndUpdate(string text)
         {
-            // 数値への変換
-            Type inputVal;
+            bool result = true;
+            Type inputVal = (dynamic)0;
             try
             {
+                // 数値への変換
                 var converter = TypeDescriptor.GetConverter(typeof(Type));
                 if (converter != null)
                 {
@@ -136,7 +137,7 @@ namespace CommonControlPlus
                 else
                 {
                     ErrorMessage = "予期しないエラーが発生しました";
-                    return false;
+                    result = false;
                 }
             }
             catch
@@ -149,20 +150,23 @@ namespace CommonControlPlus
                 {
                     ErrorMessage = "数値を入力してください";
                 }
-                return false;
+                result = false;
             }
 
-            bool result = true;
-            if (InputValueCheck != null)
+            if (result == true)
             {
-                // ユーザー定義の入力値チェック
-                result = InputValueCheck(inputVal);
+                if (InputValueCheck != null)
+                {
+                    // ユーザー定義の入力値チェック
+                    result = InputValueCheck(inputVal);
+               }
+                else
+               {
+                    // 既定の入力値チェック
+                    result = DefaultInputCheck(inputVal);
+                }
             }
-            else
-            {
-                // 既定の入力値チェック
-                result = DefaultInputCheck(inputVal);
-            }
+
             if (result)
             {
                 _Value = inputVal; // 値を更新
