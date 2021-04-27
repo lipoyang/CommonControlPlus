@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +49,22 @@
     <Compile Include="ComboBoxPlus.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ControlGroup.cs" />
+    <Compile Include="NumericBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NumericBox.Designer.cs">
+      <DependentUpon>NumericBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OnOffButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OnOffButton2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OnOffButton2.Designer.cs">
+      <DependentUpon>OnOffButton2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxNumeric.cs">
       <SubType>Component</SubType>
@@ -55,13 +72,34 @@
     <Compile Include="TextBoxPlus.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToggleSwitchText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToggleSwitchText.Designer.cs">
+      <DependentUpon>ToggleSwitchText.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ComboBoxPlus.resx">
       <DependentUpon>ComboBoxPlus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NumericBox.resx">
+      <DependentUpon>NumericBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnOffButton.resx">
+      <DependentUpon>OnOffButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnOffButton2.resx">
+      <DependentUpon>OnOffButton2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextBoxPlus.resx">
       <DependentUpon>TextBoxPlus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToggleSwitchText.resx">
+      <DependentUpon>ToggleSwitchText.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
