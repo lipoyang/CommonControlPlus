@@ -42,25 +42,6 @@ namespace CommonControlPlus
             get; set;
         }
 
-        /// <summary>
-        /// フォント
-        /// </summary>
-        [Browsable(true)]
-        override public Font Font
-        {
-            get
-            {
-                return base.Font;
-            }
-            set
-            {
-                base.Font = value;
-                buttonOn.Font = base.Font;
-                buttonOff.Font = base.Font;
-                this.Invalidate();
-            }
-        }
-
         // ON/OFF状態
         public bool TurnedOn { get; private set; }
 
@@ -186,6 +167,20 @@ namespace CommonControlPlus
             }
 
             this.Invalidate();
+        }
+
+        // デザイナでフォントをいじると位置がずれる問題の対策
+        protected override void OnFontChanged(EventArgs e)
+        {
+            Point location = this.Location;
+            //Rectangle bounds = this.Bounds;
+            //Padding margin = this.Margin;
+
+            base.OnFontChanged(e);
+
+            this.Location = location;
+            //this.Bounds = bounds;
+            //this.Margin = margin;
         }
         #endregion
     }

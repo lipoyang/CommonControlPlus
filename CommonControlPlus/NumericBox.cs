@@ -181,7 +181,28 @@ namespace CommonControlPlus
             // 再描画
             this.Refresh();
         }
+
+        // デザイナでフォントをいじると位置がずれる問題の対策
+        protected override void OnFontChanged(EventArgs e)
+        {
+            Point location = this.Location;
+            //Rectangle bounds = this.Bounds;
+            //Padding margin = this.Margin;
+
+            base.OnFontChanged(e);
+
+            this.Location = location;
+            //this.Bounds = bounds;
+            //this.Margin = margin;
+        }
         #endregion
+
+        #region コンポーネント デザイナーで生成されたコード
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonUp;
+        private TextBoxNumeric<Type> textBox;
 
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -200,13 +221,6 @@ namespace CommonControlPlus
             }
             base.Dispose(disposing);
         }
-
-        #region コンポーネント デザイナーで生成されたコード
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.Button buttonUp;
-        private TextBoxNumeric<Type> textBox;
 
         /// <summary> 
         /// デザイナー サポートに必要なメソッドです。このメソッドの内容を 

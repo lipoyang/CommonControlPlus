@@ -75,6 +75,21 @@ namespace CommonControlPlus
             // イベント発行
             this.CheckedChanged(this, e);
         }
+        
+        // デザイナでフォントをいじると位置がずれる問題の対策
+        protected override void OnFontChanged(EventArgs e)
+        {
+            Point location = this.Location;
+            //Rectangle bounds = this.Bounds;
+            //Padding margin = this.Margin;
+
+            base.OnFontChanged(e);
+
+            this.Location = location;
+            //this.Bounds = bounds;
+            //this.Margin = margin;
+        }
+        
         #endregion
     }
 }
