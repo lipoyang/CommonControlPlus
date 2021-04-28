@@ -121,11 +121,11 @@ namespace TestApp
         {
             if (checkBox3_4.Checked)
             {
-                textBoxInteger.InputValueCheck += textBoxInteger_InputCheck;
+                textBoxInteger.InputValueCheck = textBoxInteger_InputCheck;
             }
             else
             {
-                textBoxInteger.InputValueCheck -= textBoxInteger_InputCheck;
+                textBoxInteger.InputValueCheck = null;
             }
         }
 

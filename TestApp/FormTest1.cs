@@ -248,11 +248,11 @@ namespace TestApp
         {
             if (checkBox3_4.Checked)
             {
-                comboBoxInteger.InputValueCheck += comboBoxInteger_InputCheck;
+                comboBoxInteger.InputValueCheck = comboBoxInteger_InputCheck;
             }
             else
             {
-                comboBoxInteger.InputValueCheck -= comboBoxInteger_InputCheck;
+                comboBoxInteger.InputValueCheck = null;
             }
         }
 
