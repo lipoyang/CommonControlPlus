@@ -14,6 +14,7 @@ namespace CommonControlPlus
     /// 数値ボックス (UP/DOWNボタン付き)
     /// </summary>
     /// <typeparam name="Type">数値の型 (int, double, decimal のいずれか)</typeparam>
+    [DefaultEvent("Changed")]
     public class NumericBox<Type> : UserControl where Type : struct, IComparable, IFormattable
     {
         #region イベント
@@ -73,12 +74,56 @@ namespace CommonControlPlus
         }
 
         /// <summary>
+        /// 入力エラー時にメッセージボックスでメッセージを出すか？
+        /// </summary>
+        [Category("拡張機能")]
+        [Browsable(true)]
+        public bool ErrorMessageBoxEnabled
+        {
+            set => textBox.ErrorMessageBoxEnabled = value;
+            get => textBox.ErrorMessageBoxEnabled;
+        }
+        /// <summary>
+        /// 入力エラー時にコンソール出力にメッセージを出すか？
+        /// </summary>
+        [Category("拡張機能")]
+        [Browsable(true)]
+        public bool ErrorOutputEnabled
+        {
+            set => textBox.ErrorOutputEnabled = value;
+            get => textBox.ErrorOutputEnabled;
+        }
+        /// <summary>
+        /// エラーメッセージをここに設定します
+        /// </summary>
+        [Category("拡張機能")]
+        [Browsable(true)]
+        public string ErrorMessage
+        {
+            set => textBox.ErrorMessage = value;
+            get => textBox.ErrorMessage;
+        }
+
+        /// <summary>
         /// 数値
         /// </summary>
         public Type Value
         {
             set => textBox.Value = value;
             get => textBox.Value;
+        }
+
+        /// <summary>
+        /// 表示される文字列
+        /// </summary>
+        [Browsable(false)] // デザイナのプロパティグリッドには非表示
+        override public string Text
+        {
+            set { /* 握りつぶす */ }
+            get
+            {
+                return this.textBox.Text;
+            }
         }
 
         /// <summary>

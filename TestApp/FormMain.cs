@@ -41,7 +41,8 @@ namespace TestApp
         // NumericBox類のテスト
         private void button4_Click(object sender, EventArgs e)
         {
-
+            var form = new FormTest4();
+            form.Show();
         }
 
         // ControlGroupのテスト
