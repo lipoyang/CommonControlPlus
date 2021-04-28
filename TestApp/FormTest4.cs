@@ -27,6 +27,24 @@ namespace TestApp
             textBoxInteger1_1.Value = 1000;
             textBoxInteger1_2.Value = -1000;
             textBoxInteger1_3.Value = 100;
+
+            // NumericBoxDoubleのテスト
+            numericBoxDouble.Value = 12.5;
+            numericBoxDouble.MaxValue = 25;
+            numericBoxDouble.MinValue = -25;
+            numericBoxDouble.StepValue = 0.25;
+            textBoxDouble1.Value = 25;
+            textBoxDouble2.Value = -25;
+            textBoxDouble3.Value = 0.25;
+
+            // NumericBoxDecimalのテスト
+            numericBoxDecimal.Value = 12.5m;
+            numericBoxDecimal.MaxValue = 25m;
+            numericBoxDecimal.MinValue = -25m;
+            numericBoxDecimal.StepValue = 0.25m;
+            textBoxDecimal1.Value = 25m;
+            textBoxDecimal2.Value = -25m;
+            textBoxDecimal3.Value = 0.25m;
         }
 
         #region NumericBoxIntegerのテスト
@@ -86,9 +104,45 @@ namespace TestApp
 
         #region NumericBoxDoubleのテスト
 
+        // 最大値の設定
+        private void textBoxDouble1_Changed(object sender, EventArgs e)
+        {
+            numericBoxDouble.MaxValue = textBoxDouble1.Value;
+        }
+
+        // 最小値の設定
+        private void textBoxDouble2_Changed(object sender, EventArgs e)
+        {
+            numericBoxDouble.MinValue = textBoxDouble2.Value;
+        }
+
+        // 変化幅の設定
+        private void textBoxDouble3_Changed(object sender, EventArgs e)
+        {
+            numericBoxDouble.StepValue = textBoxDouble3.Value;
+        }
+
         #endregion
 
         #region NumericBoxDecimalのテスト
+
+        // 最大値の設定
+        private void textBoxDecimal1_Changed(object sender, EventArgs e)
+        {
+            numericBoxDecimal.MaxValue = textBoxDecimal1.Value;
+        }
+
+        // 最小値の設定
+        private void textBoxDecimal2_Changed(object sender, EventArgs e)
+        {
+            numericBoxDecimal.MinValue = textBoxDecimal2.Value;
+        }
+
+        // 変化幅の設定
+        private void textBoxDecimal3_Changed(object sender, EventArgs e)
+        {
+            numericBoxDecimal.StepValue = textBoxDecimal3.Value;
+        }
 
         #endregion
     }

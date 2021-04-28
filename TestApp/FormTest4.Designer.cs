@@ -43,17 +43,25 @@
             this.checkBox1_2 = new System.Windows.Forms.CheckBox();
             this.checkBox1_1 = new System.Windows.Forms.CheckBox();
             this.button1_1 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBoxDouble = new CommonControlPlus.TextBoxDouble();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button4_1 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBoxDecimal = new CommonControlPlus.TextBoxDecimal();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button5_1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxDouble3 = new CommonControlPlus.TextBoxDouble();
+            this.textBoxDouble2 = new CommonControlPlus.TextBoxDouble();
+            this.textBoxDouble1 = new CommonControlPlus.TextBoxDouble();
+            this.numericBoxDouble = new CommonControlPlus.NumericBoxDouble();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxDecimal3 = new CommonControlPlus.TextBoxDecimal();
+            this.textBoxDecimal2 = new CommonControlPlus.TextBoxDecimal();
+            this.textBoxDecimal1 = new CommonControlPlus.TextBoxDecimal();
+            this.numericBoxDecimal = new CommonControlPlus.NumericBoxDecimal();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -83,6 +91,9 @@
             // 
             // numericBoxInteger
             // 
+            this.numericBoxInteger.ErrorMessage = "";
+            this.numericBoxInteger.ErrorMessageBoxEnabled = false;
+            this.numericBoxInteger.ErrorOutputEnabled = false;
             this.numericBoxInteger.FormatString = "";
             this.numericBoxInteger.InputValueCheck = null;
             this.numericBoxInteger.Location = new System.Drawing.Point(11, 21);
@@ -171,7 +182,7 @@
             this.textBoxInteger1_3.ErrorMessageBoxEnabled = false;
             this.textBoxInteger1_3.ErrorOutputEnabled = false;
             this.textBoxInteger1_3.FormatString = "";
-            this.textBoxInteger1_3.Location = new System.Drawing.Point(56, 167);
+            this.textBoxInteger1_3.Location = new System.Drawing.Point(56, 165);
             this.textBoxInteger1_3.MaxValue = null;
             this.textBoxInteger1_3.MinValue = null;
             this.textBoxInteger1_3.Name = "textBoxInteger1_3";
@@ -262,123 +273,267 @@
             this.button1_1.UseVisualStyleBackColor = true;
             this.button1_1.Click += new System.EventHandler(this.button1_1_Click);
             // 
-            // groupBox4
+            // groupBox1
             // 
-            this.groupBox4.Controls.Add(this.textBoxDouble);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.button4_1);
-            this.groupBox4.Location = new System.Drawing.Point(301, 11);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(283, 106);
-            this.groupBox4.TabIndex = 9;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "NumericBoxDoubleのテスト";
+            this.groupBox1.Controls.Add(this.textBoxDouble3);
+            this.groupBox1.Controls.Add(this.textBoxDouble2);
+            this.groupBox1.Controls.Add(this.textBoxDouble1);
+            this.groupBox1.Controls.Add(this.numericBoxDouble);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(308, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(283, 144);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "NumericBoxDoubleのテスト";
             // 
-            // textBoxDouble
+            // textBoxDouble3
             // 
-            this.textBoxDouble.ErrorMessage = "";
-            this.textBoxDouble.ErrorMessageBoxEnabled = true;
-            this.textBoxDouble.ErrorOutputEnabled = false;
-            this.textBoxDouble.FormatString = "";
-            this.textBoxDouble.Location = new System.Drawing.Point(11, 21);
-            this.textBoxDouble.MaxValue = null;
-            this.textBoxDouble.MinValue = null;
-            this.textBoxDouble.Name = "textBoxDouble";
-            this.textBoxDouble.Size = new System.Drawing.Size(92, 19);
-            this.textBoxDouble.StepValue = null;
-            this.textBoxDouble.TabIndex = 11;
-            this.textBoxDouble.Text = "0";
-            this.textBoxDouble.Value = 0D;
+            this.textBoxDouble3.ErrorMessage = "";
+            this.textBoxDouble3.ErrorMessageBoxEnabled = false;
+            this.textBoxDouble3.ErrorOutputEnabled = false;
+            this.textBoxDouble3.FormatString = "";
+            this.textBoxDouble3.Location = new System.Drawing.Point(59, 105);
+            this.textBoxDouble3.MaxValue = null;
+            this.textBoxDouble3.MinValue = null;
+            this.textBoxDouble3.Name = "textBoxDouble3";
+            this.textBoxDouble3.Size = new System.Drawing.Size(99, 19);
+            this.textBoxDouble3.StepValue = null;
+            this.textBoxDouble3.TabIndex = 25;
+            this.textBoxDouble3.Text = "0";
+            this.textBoxDouble3.Value = 0D;
+            this.textBoxDouble3.Changed += new System.EventHandler(this.textBoxDouble3_Changed);
             // 
-            // textBox4
+            // textBoxDouble2
             // 
-            this.textBox4.Location = new System.Drawing.Point(151, 56);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(97, 19);
-            this.textBox4.TabIndex = 9;
+            this.textBoxDouble2.ErrorMessage = "";
+            this.textBoxDouble2.ErrorMessageBoxEnabled = false;
+            this.textBoxDouble2.ErrorOutputEnabled = false;
+            this.textBoxDouble2.FormatString = "";
+            this.textBoxDouble2.Location = new System.Drawing.Point(59, 79);
+            this.textBoxDouble2.MaxValue = null;
+            this.textBoxDouble2.MinValue = null;
+            this.textBoxDouble2.Name = "textBoxDouble2";
+            this.textBoxDouble2.Size = new System.Drawing.Size(99, 19);
+            this.textBoxDouble2.StepValue = null;
+            this.textBoxDouble2.TabIndex = 24;
+            this.textBoxDouble2.Text = "0";
+            this.textBoxDouble2.Value = 0D;
+            this.textBoxDouble2.Changed += new System.EventHandler(this.textBoxDouble2_Changed);
             // 
-            // button4_1
+            // textBoxDouble1
             // 
-            this.button4_1.Location = new System.Drawing.Point(11, 54);
-            this.button4_1.Margin = new System.Windows.Forms.Padding(2);
-            this.button4_1.Name = "button4_1";
-            this.button4_1.Size = new System.Drawing.Size(128, 19);
-            this.button4_1.TabIndex = 7;
-            this.button4_1.Text = "値設定のテスト";
-            this.button4_1.UseVisualStyleBackColor = true;
+            this.textBoxDouble1.ErrorMessage = "";
+            this.textBoxDouble1.ErrorMessageBoxEnabled = false;
+            this.textBoxDouble1.ErrorOutputEnabled = false;
+            this.textBoxDouble1.FormatString = "";
+            this.textBoxDouble1.Location = new System.Drawing.Point(59, 54);
+            this.textBoxDouble1.MaxValue = null;
+            this.textBoxDouble1.MinValue = null;
+            this.textBoxDouble1.Name = "textBoxDouble1";
+            this.textBoxDouble1.Size = new System.Drawing.Size(99, 19);
+            this.textBoxDouble1.StepValue = null;
+            this.textBoxDouble1.TabIndex = 23;
+            this.textBoxDouble1.Text = "0";
+            this.textBoxDouble1.Value = 0D;
+            this.textBoxDouble1.Changed += new System.EventHandler(this.textBoxDouble1_Changed);
             // 
-            // groupBox5
+            // numericBoxDouble
             // 
-            this.groupBox5.Controls.Add(this.textBoxDecimal);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.button5_1);
-            this.groupBox5.Location = new System.Drawing.Point(301, 131);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Size = new System.Drawing.Size(283, 106);
-            this.groupBox5.TabIndex = 10;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "NumericBoxDecimalのテスト";
+            this.numericBoxDouble.ErrorMessage = "";
+            this.numericBoxDouble.ErrorMessageBoxEnabled = false;
+            this.numericBoxDouble.ErrorOutputEnabled = false;
+            this.numericBoxDouble.FormatString = "";
+            this.numericBoxDouble.InputValueCheck = null;
+            this.numericBoxDouble.Location = new System.Drawing.Point(13, 23);
+            this.numericBoxDouble.MaxValue = null;
+            this.numericBoxDouble.MinValue = null;
+            this.numericBoxDouble.Name = "numericBoxDouble";
+            this.numericBoxDouble.Size = new System.Drawing.Size(107, 20);
+            this.numericBoxDouble.StepValue = 1D;
+            this.numericBoxDouble.TabIndex = 22;
+            this.numericBoxDouble.Value = 0D;
             // 
-            // textBoxDecimal
+            // label4
             // 
-            this.textBoxDecimal.ErrorMessage = "";
-            this.textBoxDecimal.ErrorMessageBoxEnabled = true;
-            this.textBoxDecimal.ErrorOutputEnabled = false;
-            this.textBoxDecimal.FormatString = "";
-            this.textBoxDecimal.Location = new System.Drawing.Point(11, 20);
-            this.textBoxDecimal.MaxValue = null;
-            this.textBoxDecimal.MinValue = null;
-            this.textBoxDecimal.Name = "textBoxDecimal";
-            this.textBoxDecimal.Size = new System.Drawing.Size(92, 19);
-            this.textBoxDecimal.StepValue = null;
-            this.textBoxDecimal.TabIndex = 10;
-            this.textBoxDecimal.Text = "0";
-            this.textBoxDecimal.Value = new decimal(new int[] {
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "変化幅";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "最小値";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "最大値";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBoxDecimal3);
+            this.groupBox2.Controls.Add(this.textBoxDecimal2);
+            this.groupBox2.Controls.Add(this.textBoxDecimal1);
+            this.groupBox2.Controls.Add(this.numericBoxDecimal);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Location = new System.Drawing.Point(308, 178);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(283, 144);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "NumericBoxDecimalのテスト";
+            // 
+            // textBoxDecimal3
+            // 
+            this.textBoxDecimal3.ErrorMessage = "";
+            this.textBoxDecimal3.ErrorMessageBoxEnabled = false;
+            this.textBoxDecimal3.ErrorOutputEnabled = false;
+            this.textBoxDecimal3.FormatString = "";
+            this.textBoxDecimal3.Location = new System.Drawing.Point(59, 106);
+            this.textBoxDecimal3.MaxValue = null;
+            this.textBoxDecimal3.MinValue = null;
+            this.textBoxDecimal3.Name = "textBoxDecimal3";
+            this.textBoxDecimal3.Size = new System.Drawing.Size(99, 19);
+            this.textBoxDecimal3.StepValue = null;
+            this.textBoxDecimal3.TabIndex = 25;
+            this.textBoxDecimal3.Text = "0";
+            this.textBoxDecimal3.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.textBoxDecimal3.Changed += new System.EventHandler(this.textBoxDecimal3_Changed);
+            // 
+            // textBoxDecimal2
+            // 
+            this.textBoxDecimal2.ErrorMessage = "";
+            this.textBoxDecimal2.ErrorMessageBoxEnabled = false;
+            this.textBoxDecimal2.ErrorOutputEnabled = false;
+            this.textBoxDecimal2.FormatString = "";
+            this.textBoxDecimal2.Location = new System.Drawing.Point(59, 81);
+            this.textBoxDecimal2.MaxValue = null;
+            this.textBoxDecimal2.MinValue = null;
+            this.textBoxDecimal2.Name = "textBoxDecimal2";
+            this.textBoxDecimal2.Size = new System.Drawing.Size(99, 19);
+            this.textBoxDecimal2.StepValue = null;
+            this.textBoxDecimal2.TabIndex = 24;
+            this.textBoxDecimal2.Text = "0";
+            this.textBoxDecimal2.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.textBoxDecimal2.Changed += new System.EventHandler(this.textBoxDecimal2_Changed);
+            // 
+            // textBoxDecimal1
+            // 
+            this.textBoxDecimal1.ErrorMessage = "";
+            this.textBoxDecimal1.ErrorMessageBoxEnabled = false;
+            this.textBoxDecimal1.ErrorOutputEnabled = false;
+            this.textBoxDecimal1.FormatString = "";
+            this.textBoxDecimal1.Location = new System.Drawing.Point(59, 56);
+            this.textBoxDecimal1.MaxValue = null;
+            this.textBoxDecimal1.MinValue = null;
+            this.textBoxDecimal1.Name = "textBoxDecimal1";
+            this.textBoxDecimal1.Size = new System.Drawing.Size(99, 19);
+            this.textBoxDecimal1.StepValue = null;
+            this.textBoxDecimal1.TabIndex = 23;
+            this.textBoxDecimal1.Text = "0";
+            this.textBoxDecimal1.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.textBoxDecimal1.Changed += new System.EventHandler(this.textBoxDecimal1_Changed);
+            // 
+            // numericBoxDecimal
+            // 
+            this.numericBoxDecimal.ErrorMessage = "";
+            this.numericBoxDecimal.ErrorMessageBoxEnabled = false;
+            this.numericBoxDecimal.ErrorOutputEnabled = false;
+            this.numericBoxDecimal.FormatString = "";
+            this.numericBoxDecimal.InputValueCheck = null;
+            this.numericBoxDecimal.Location = new System.Drawing.Point(13, 22);
+            this.numericBoxDecimal.MaxValue = null;
+            this.numericBoxDecimal.MinValue = null;
+            this.numericBoxDecimal.Name = "numericBoxDecimal";
+            this.numericBoxDecimal.Size = new System.Drawing.Size(107, 20);
+            this.numericBoxDecimal.StepValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxDecimal.TabIndex = 22;
+            this.numericBoxDecimal.Value = new decimal(new int[] {
             0,
             0,
             0,
             0});
             // 
-            // textBox5
+            // label7
             // 
-            this.textBox5.Location = new System.Drawing.Point(151, 56);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(97, 19);
-            this.textBox5.TabIndex = 9;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "変化幅";
             // 
-            // button5_1
+            // label8
             // 
-            this.button5_1.Location = new System.Drawing.Point(11, 54);
-            this.button5_1.Margin = new System.Windows.Forms.Padding(2);
-            this.button5_1.Name = "button5_1";
-            this.button5_1.Size = new System.Drawing.Size(128, 19);
-            this.button5_1.TabIndex = 7;
-            this.button5_1.Text = "値設定のテスト";
-            this.button5_1.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "最小値";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 12);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "最大値";
             // 
             // FormTest4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 437);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
+            this.ClientSize = new System.Drawing.Size(615, 353);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Name = "FormTest4";
             this.Text = "テスト";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -386,14 +541,6 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button1_1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button4_1;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button5_1;
-        private CommonControlPlus.TextBoxDouble textBoxDouble;
-        private CommonControlPlus.TextBoxDecimal textBoxDecimal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -407,6 +554,22 @@
         private System.Windows.Forms.CheckBox checkBox1_2;
         private System.Windows.Forms.CheckBox checkBox1_1;
         private CommonControlPlus.NumericBoxInteger numericBoxInteger;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private CommonControlPlus.NumericBoxDouble numericBoxDouble;
+        private CommonControlPlus.NumericBoxDecimal numericBoxDecimal;
+        private CommonControlPlus.TextBoxDouble textBoxDouble3;
+        private CommonControlPlus.TextBoxDouble textBoxDouble2;
+        private CommonControlPlus.TextBoxDouble textBoxDouble1;
+        private CommonControlPlus.TextBoxDecimal textBoxDecimal3;
+        private CommonControlPlus.TextBoxDecimal textBoxDecimal2;
+        private CommonControlPlus.TextBoxDecimal textBoxDecimal1;
     }
 }
 
