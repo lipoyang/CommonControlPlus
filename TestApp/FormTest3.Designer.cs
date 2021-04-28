@@ -47,8 +47,8 @@
             this.toggleSwitch = new CommonControlPlus.ToggleSwitch();
             this.toggleSwitch4 = new CommonControlPlus.ToggleSwitch();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.toggleSwitchText1 = new CommonControlPlus.ToggleSwitchText();
             this.toggleSwitchText2 = new CommonControlPlus.ToggleSwitchText();
+            this.toggleSwitchText1 = new CommonControlPlus.ToggleSwitchText();
             this.groupBox1.SuspendLayout();
             this.groupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -259,6 +259,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ToggleSwitchTextのテスト";
             // 
+            // toggleSwitchText2
+            // 
+            this.toggleSwitchText2.Checked = false;
+            this.toggleSwitchText2.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.toggleSwitchText2.Location = new System.Drawing.Point(6, 53);
+            this.toggleSwitchText2.Margin = new System.Windows.Forms.Padding(5);
+            this.toggleSwitchText2.Name = "toggleSwitchText2";
+            this.toggleSwitchText2.Size = new System.Drawing.Size(207, 37);
+            this.toggleSwitchText2.TabIndex = 1;
+            this.toggleSwitchText2.Text = "大きい文字";
+            this.toggleSwitchText2.CheckedChanged += new System.EventHandler(this.toggleSwitchText_CheckedChanged);
+            // 
             // toggleSwitchText1
             // 
             this.toggleSwitchText1.Checked = false;
@@ -268,18 +280,6 @@
             this.toggleSwitchText1.TabIndex = 0;
             this.toggleSwitchText1.Text = "文字つきのトグルスイッチ";
             this.toggleSwitchText1.CheckedChanged += new System.EventHandler(this.toggleSwitchText_CheckedChanged);
-            // 
-            // toggleSwitchText2
-            // 
-            this.toggleSwitchText2.Checked = false;
-            this.toggleSwitchText2.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.toggleSwitchText2.Location = new System.Drawing.Point(6, 53);
-            this.toggleSwitchText2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.toggleSwitchText2.Name = "toggleSwitchText2";
-            this.toggleSwitchText2.Size = new System.Drawing.Size(207, 37);
-            this.toggleSwitchText2.TabIndex = 1;
-            this.toggleSwitchText2.Text = "大きい文字";
-            this.toggleSwitchText2.CheckedChanged += new System.EventHandler(this.toggleSwitchText_CheckedChanged);
             // 
             // FormTest3
             // 
@@ -292,7 +292,7 @@
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormTest3";
-            this.Text = "FormTest3";
+            this.Text = "テスト";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox.ResumeLayout(false);

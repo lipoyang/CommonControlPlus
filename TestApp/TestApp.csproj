@@ -64,6 +64,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTest5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest5.Designer.cs">
+      <DependentUpon>FormTest5.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTest3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTest5.resx">
+      <DependentUpon>FormTest5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTest3.resx">
       <DependentUpon>FormTest3.cs</DependentUpon>

@@ -37,5 +37,18 @@ namespace TestApp
             var form = new FormTest3();
             form.Show();
         }
+
+        // NumericBox類のテスト
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // ControlGroupのテスト
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var form = new FormTest5();
+            form.Show();
+        }
     }
 }
