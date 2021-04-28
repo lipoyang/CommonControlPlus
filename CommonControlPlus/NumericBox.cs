@@ -13,7 +13,8 @@ namespace CommonControlPlus
     /// <summary>
     /// 数値ボックス (UP/DOWNボタン付き)
     /// </summary>
-    public partial class NumericBox : UserControl
+    /// <typeparam name="Type">数値の型 (int, double, decimal のいずれか)</typeparam>
+    public class NumericBox<Type> : UserControl where Type : struct, IComparable, IFormattable
     {
         #region イベント
 
@@ -25,18 +26,15 @@ namespace CommonControlPlus
         public event EventHandler Changed = delegate { };
 
         /// <summary>
-        /// 入力値チェック関数の型
-        /// </summary>
-        /// <param name="inputVal">入力された数値</param>
-        /// <returns>OK(true)かNG(false)か</returns>
-        public delegate bool InputValueCheckFunction(Type inputVal);
-
-        /// <summary>
         /// 入力値チェック関数をここに設定します
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public event InputValueCheckFunction InputValueCheck = null;
+        public TextBoxNumeric<Type>.InputValueCheckFunction InputValueCheck
+        {
+            get => textBox.InputValueCheck;
+            set => textBox.InputValueCheck = value;
+        }
 
         #endregion
 
@@ -47,7 +45,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public int? MaxValue {
+        public Type? MaxValue {
             set => textBox.MaxValue = value;
             get => textBox.MaxValue;
         }
@@ -57,7 +55,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public int? MinValue
+        public Type? MinValue
         {
             set => textBox.MinValue = value;
             get => textBox.MinValue;
@@ -68,7 +66,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public int? StepValue
+        public Type? StepValue
         {
             set => textBox.StepValue = value;
             get => textBox.StepValue;
@@ -77,7 +75,7 @@ namespace CommonControlPlus
         /// <summary>
         /// 数値
         /// </summary>
-        public int Value
+        public Type Value
         {
             set => textBox.Value = value;
             get => textBox.Value;
@@ -121,16 +119,16 @@ namespace CommonControlPlus
         // ダウンボタンが押されたとき
         private void buttonDown_Click(object sender, EventArgs e)
         {
-            int val = textBox.Value - (int)StepValue;
+            Type val = (dynamic)textBox.Value - (Type)StepValue;
             if(MinValue != null)
             {
-                if (val > (int)MinValue)
+                if (val.CompareTo(MinValue) > 0)
                 {
                     textBox.Value = val;
                 }
                 else
                 {
-                    textBox.Value = (int)MinValue;
+                    textBox.Value = (Type)MinValue;
                 }
             }
         }
@@ -138,16 +136,16 @@ namespace CommonControlPlus
         // アップボタンが押されたとき
         private void buttonUp_Click(object sender, EventArgs e)
         {
-            int val = textBox.Value + (int)StepValue;
+            Type val = (dynamic)textBox.Value + (Type)StepValue;
             if (MaxValue != null)
             {
-                if (val < (int)MaxValue)
+                if (val.CompareTo(MaxValue) < 0)
                 {
                     textBox.Value = val;
                 }
                 else
                 {
-                    textBox.Value = (int)MaxValue;
+                    textBox.Value = (Type)MaxValue;
                 }
             }
         }
@@ -160,7 +158,7 @@ namespace CommonControlPlus
         }
 
         // 入力チェック
-        private bool textBox_InputValueCheck(int inputVal)
+        private bool textBox_InputValueCheck(Type inputVal)
         {
             return true;
         }
@@ -184,5 +182,140 @@ namespace CommonControlPlus
             this.Refresh();
         }
         #endregion
+
+        /// <summary> 
+        /// 必要なデザイナー変数です。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 使用中のリソースをすべてクリーンアップします。
+        /// </summary>
+        /// <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region コンポーネント デザイナーで生成されたコード
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonUp;
+        private TextBoxNumeric<Type> textBox;
+
+        /// <summary> 
+        /// デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+        /// コード エディターで変更しないでください。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
+            this.textBox = new CommonControlPlus.TextBoxNumeric<Type>();
+            this.tableLayoutPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.ColumnCount = 3;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel.Controls.Add(this.buttonDown, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.buttonUp, 2, 0);
+            this.tableLayoutPanel.Controls.Add(this.textBox, 1, 0);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(124, 23);
+            this.tableLayoutPanel.TabIndex = 0;
+            // 
+            // buttonDown
+            // 
+            this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDown.Location = new System.Drawing.Point(0, 0);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(23, 23);
+            this.buttonDown.TabIndex = 0;
+            this.buttonDown.Text = "-";
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonUp.Location = new System.Drawing.Point(101, 0);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(23, 23);
+            this.buttonUp.TabIndex = 2;
+            this.buttonUp.Text = "+";
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
+            // textBox
+            // 
+            this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox.ErrorMessage = "";
+            this.textBox.ErrorMessageBoxEnabled = false;
+            this.textBox.ErrorOutputEnabled = false;
+            this.textBox.FormatString = "";
+            this.textBox.Location = new System.Drawing.Point(23, 1);
+            this.textBox.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.textBox.MaxValue = null;
+            this.textBox.MinValue = null;
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(78, 19);
+            this.textBox.StepValue = null;
+            this.textBox.TabIndex = 3;
+            this.textBox.Text = "0";
+            this.textBox.Value = (dynamic)0;
+            this.textBox.Changed += this.textBox_Changed;
+            // 
+            // NumericBox
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tableLayoutPanel);
+            this.Name = "NumericBox";
+            this.Size = new System.Drawing.Size(124, 23);
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// double型数値用の数値ボックス
+    /// </summary>
+    public class NumericBoxDouble : NumericBox<double>
+    {
+    }
+
+    /// <summary>
+    /// decimal型数値用の数値ボックス
+    /// </summary>
+    public class NumericBoxDecimal : NumericBox<decimal>
+    {
+    }
+
+    /// <summary>
+    /// int型数値用の数値ボックス
+    /// </summary>
+    public class NumericBoxInteger : NumericBox<int>
+    {
     }
 }

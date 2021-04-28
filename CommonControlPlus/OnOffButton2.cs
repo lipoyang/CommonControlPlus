@@ -13,6 +13,7 @@ namespace CommonControlPlus
     /// <summary>
     /// ON/OFFボタン (ボタン2個)
     /// </summary>
+    [DefaultEvent("ClickOn")]
     public partial class OnOffButton2 : UserControl
     {
         #region イベント
@@ -41,6 +42,7 @@ namespace CommonControlPlus
             get; set;
         }
 
+        // フォント
         [Browsable(true)]
         override public Font Font
         {
@@ -57,21 +59,8 @@ namespace CommonControlPlus
             }
         }
 
-
-        [Category("拡張機能")]
-        [Browsable(true)]
         // ON/OFF状態
-        public bool TurnedOn
-        {
-            get
-            {
-                return _TurnedOn;
-            }
-            set
-            {
-                _TurnedOn = value;
-            }
-        }
+        public bool TurnedOn { get; private set; }
 
         /// <summary>
         /// ONボタンのテキスト
@@ -118,6 +107,9 @@ namespace CommonControlPlus
         public OnOffButton2()
         {
             InitializeComponent();
+            TurnedOn = false;
+            buttonOn.Enabled = true;
+            buttonOff.Enabled = false;
         }
 
         /// <summary>
@@ -145,9 +137,6 @@ namespace CommonControlPlus
         #endregion
 
         #region 内部処理
-
-        // ON/OFF状態
-        private bool _TurnedOn = false;
 
         // ONボタンが押されたとき
         private void buttonOn_Click(object sender, EventArgs e)

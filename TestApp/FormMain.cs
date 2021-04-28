@@ -30,5 +30,12 @@ namespace TestApp
             var form = new FormTest2();
             form.Show();
         }
+
+        // ボタン・スイッチ類のテスト
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var form = new FormTest3();
+            form.Show();
+        }
     }
 }

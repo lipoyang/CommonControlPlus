@@ -53,9 +53,6 @@
     <Compile Include="NumericBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NumericBox.Designer.cs">
-      <DependentUpon>NumericBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="OnOffButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -85,9 +82,6 @@
   <ItemGroup>
     <EmbeddedResource Include="ComboBoxPlus.resx">
       <DependentUpon>ComboBoxPlus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NumericBox.resx">
-      <DependentUpon>NumericBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OnOffButton.resx">
       <DependentUpon>OnOffButton.cs</DependentUpon>

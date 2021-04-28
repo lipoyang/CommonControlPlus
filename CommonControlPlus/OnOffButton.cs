@@ -11,17 +11,23 @@ namespace CommonControlPlus
     /// <summary>
     /// ON/OFFボタン
     /// </summary>
-    [DefaultEvent("OnOffChanged")]
+    [DefaultEvent("ClickOn")]
     public class OnOffButton : Button
     {
         #region イベント
 
         /// <summary>
-        /// ON/OFF状態が変化したときのイベント
+        /// ONボタンがおされたときのイベント
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public event CancelEventHandler OnOffChanged = delegate { };
+        public event CancelEventHandler ClickOn = delegate { };
+        /// <summary>
+        /// OFFボタンがおされたときのイベント
+        /// </summary>
+        [Category("拡張機能")]
+        [Browsable(true)]
+        public event CancelEventHandler ClickOff = delegate { };
 
         #endregion
 
@@ -33,7 +39,7 @@ namespace CommonControlPlus
         {
             get
             {
-                return _TurnedOn ? _OffButtonText : _OnButtonText;
+                return TurnedOn ? _OffButtonText : _OnButtonText;
             }
             set
             {
@@ -41,20 +47,8 @@ namespace CommonControlPlus
             }
         }
 
-        [Category("拡張機能")]
-        [Browsable(true)]
         // ON/OFF状態
-        public bool TurnedOn
-        {
-            get
-            {
-                return _TurnedOn;
-            }
-            set
-            {
-                _TurnedOn = value;
-            }
-        }
+        public bool TurnedOn { get; private set; }
 
         /// <summary>
         /// ONボタンのテキスト
@@ -127,8 +121,6 @@ namespace CommonControlPlus
 
         #region 内部処理
 
-        // ON/OFF状態
-        private bool _TurnedOn = false;
         // ONボタンのテキスト
         private string _OnButtonText = "ON";
         // OFFボタンのテキスト
@@ -150,7 +142,14 @@ namespace CommonControlPlus
         {
             // イベント発行
             var result = new CancelEventArgs();
-            OnOffChanged(this, result);
+            if (TurnedOn)
+            {
+                ClickOff(this, result);
+            }
+            else
+            {
+                ClickOn(this, result);
+            }
 
             // キャンセルでなければ状態をトグル
             if (!result.Cancel)
