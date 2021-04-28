@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CommonControlPlus;
+
 namespace TestApp
 {
     public partial class FormTest3 : Form
@@ -32,11 +34,11 @@ namespace TestApp
         {
             if (onOffButton.TurnedOn)
             {
-                MessageBox.Show("ON状態です");
+                MessageBox.Show("ON状態です", "テスト");
             }
             else
             {
-                MessageBox.Show("OFF状態です");
+                MessageBox.Show("OFF状態です", "テスト");
             }
         }
 
@@ -44,12 +46,12 @@ namespace TestApp
         {
             if (checkBox1_1.Checked)
             {
-                MessageBox.Show("ONボタンが押されましたがキャンセルします");
+                MessageBox.Show("ONボタンが押されましたがキャンセルします", "テスト");
                 e.Cancel = true;
             }
             else
             {
-                MessageBox.Show("ONボタンが押されました");
+                MessageBox.Show("ONボタンが押されました", "テスト");
             }
         }
 
@@ -57,12 +59,12 @@ namespace TestApp
         {
             if (checkBox1_2.Checked)
             {
-                MessageBox.Show("OFFボタンが押されましたがキャンセルします");
+                MessageBox.Show("OFFボタンが押されましたがキャンセルします", "テスト");
                 e.Cancel = true;
             }
             else
             {
-                MessageBox.Show("OFFボタンが押されました");
+                MessageBox.Show("OFFボタンが押されました", "テスト");
             }
         }
         #endregion
@@ -82,11 +84,11 @@ namespace TestApp
         {
             if (onOffButtonPair.TurnedOn)
             {
-                MessageBox.Show("ON状態です");
+                MessageBox.Show("ON状態です", "テスト");
             }
             else
             {
-                MessageBox.Show("OFF状態です");
+                MessageBox.Show("OFF状態です", "テスト");
             }
         }
 
@@ -94,12 +96,12 @@ namespace TestApp
         {
             if (checkBox2_1.Checked)
             {
-                MessageBox.Show("ONボタンが押されましたがキャンセルします");
+                MessageBox.Show("ONボタンが押されましたがキャンセルします", "テスト");
                 e.Cancel = true;
             }
             else
             {
-                MessageBox.Show("ONボタンが押されました");
+                MessageBox.Show("ONボタンが押されました", "テスト");
             }
         }
 
@@ -107,14 +109,48 @@ namespace TestApp
         {
             if (checkBox2_2.Checked)
             {
-                MessageBox.Show("OFFボタンが押されましたがキャンセルします");
+                MessageBox.Show("OFFボタンが押されましたがキャンセルします", "テスト");
                 e.Cancel = true;
             }
             else
             {
-                MessageBox.Show("OFFボタンが押されました");
+                MessageBox.Show("OFFボタンが押されました", "テスト");
             }
         }
+        #endregion
+
+        #region ToggleSwitchのテスト
+        private void toggleSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            var sw = (ToggleSwitch)sender;
+
+            if (sw.Checked)
+            {
+                MessageBox.Show("チェックされました", "テスト");
+            }
+            else
+            {
+                MessageBox.Show("チェックがはずされました", "テスト");
+            }
+        }
+
+        #endregion
+
+        #region ToggleSwitchTextのテスト
+        private void toggleSwitchText_CheckedChanged(object sender, EventArgs e)
+        {
+            var sw = (ToggleSwitchText)sender;
+
+            if (sw.Checked)
+            {
+                MessageBox.Show("チェックされました", "テスト");
+            }
+            else
+            {
+                MessageBox.Show("チェックがはずされました", "テスト");
+            }
+        }
+
         #endregion
 
     }

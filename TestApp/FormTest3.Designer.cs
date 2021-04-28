@@ -42,12 +42,17 @@
             this.button2_2 = new System.Windows.Forms.Button();
             this.button2_1 = new System.Windows.Forms.Button();
             this.onOffButtonPair = new CommonControlPlus.OnOffButtonPair();
-            this.toggleSwitchText2 = new CommonControlPlus.ToggleSwitchText();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toggleSwitch1 = new CommonControlPlus.ToggleSwitch();
+            this.toggleSwitch = new CommonControlPlus.ToggleSwitch();
             this.toggleSwitch4 = new CommonControlPlus.ToggleSwitch();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.toggleSwitchText1 = new CommonControlPlus.ToggleSwitchText();
-            this.toggleSwitch3 = new CommonControlPlus.ToggleSwitch();
+            this.toggleSwitchText2 = new CommonControlPlus.ToggleSwitchText();
             this.groupBox1.SuspendLayout();
             this.groupBox.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -204,56 +209,96 @@
             this.onOffButtonPair.ClickOn += new System.ComponentModel.CancelEventHandler(this.onOffButtonPair_ClickOn);
             this.onOffButtonPair.ClickOff += new System.ComponentModel.CancelEventHandler(this.onOffButtonPair_ClickOff);
             // 
-            // toggleSwitchText2
+            // groupBox2
             // 
-            this.toggleSwitchText2.Checked = false;
-            this.toggleSwitchText2.Location = new System.Drawing.Point(414, 247);
-            this.toggleSwitchText2.Name = "toggleSwitchText2";
-            this.toggleSwitchText2.Size = new System.Drawing.Size(147, 20);
-            this.toggleSwitchText2.TabIndex = 8;
+            this.groupBox2.Controls.Add(this.toggleSwitch1);
+            this.groupBox2.Controls.Add(this.toggleSwitch);
+            this.groupBox2.Controls.Add(this.toggleSwitch4);
+            this.groupBox2.Location = new System.Drawing.Point(208, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(227, 118);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ToggleSwitchのテスト";
+            // 
+            // toggleSwitch1
+            // 
+            this.toggleSwitch1.Location = new System.Drawing.Point(120, 72);
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Size = new System.Drawing.Size(20, 10);
+            this.toggleSwitch1.TabIndex = 8;
+            this.toggleSwitch1.UseVisualStyleBackColor = true;
+            this.toggleSwitch1.CheckedChanged += new System.EventHandler(this.toggleSwitch_CheckedChanged);
+            // 
+            // toggleSwitch
+            // 
+            this.toggleSwitch.Location = new System.Drawing.Point(6, 21);
+            this.toggleSwitch.Name = "toggleSwitch";
+            this.toggleSwitch.Size = new System.Drawing.Size(40, 20);
+            this.toggleSwitch.TabIndex = 5;
+            this.toggleSwitch.UseVisualStyleBackColor = true;
+            this.toggleSwitch.CheckedChanged += new System.EventHandler(this.toggleSwitch_CheckedChanged);
             // 
             // toggleSwitch4
             // 
-            this.toggleSwitch4.Location = new System.Drawing.Point(414, 148);
+            this.toggleSwitch4.Location = new System.Drawing.Point(6, 56);
             this.toggleSwitch4.Name = "toggleSwitch4";
-            this.toggleSwitch4.Size = new System.Drawing.Size(40, 20);
+            this.toggleSwitch4.Size = new System.Drawing.Size(86, 43);
             this.toggleSwitch4.TabIndex = 7;
             this.toggleSwitch4.UseVisualStyleBackColor = true;
+            this.toggleSwitch4.CheckedChanged += new System.EventHandler(this.toggleSwitch_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.toggleSwitchText2);
+            this.groupBox3.Controls.Add(this.toggleSwitchText1);
+            this.groupBox3.Location = new System.Drawing.Point(208, 150);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(227, 105);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ToggleSwitchTextのテスト";
             // 
             // toggleSwitchText1
             // 
             this.toggleSwitchText1.Checked = false;
-            this.toggleSwitchText1.Location = new System.Drawing.Point(414, 198);
+            this.toggleSwitchText1.Location = new System.Drawing.Point(7, 25);
             this.toggleSwitchText1.Name = "toggleSwitchText1";
-            this.toggleSwitchText1.Size = new System.Drawing.Size(147, 20);
-            this.toggleSwitchText1.TabIndex = 6;
+            this.toggleSwitchText1.Size = new System.Drawing.Size(173, 20);
+            this.toggleSwitchText1.TabIndex = 0;
+            this.toggleSwitchText1.Text = "文字つきのトグルスイッチ";
+            this.toggleSwitchText1.CheckedChanged += new System.EventHandler(this.toggleSwitchText_CheckedChanged);
             // 
-            // toggleSwitch3
+            // toggleSwitchText2
             // 
-            this.toggleSwitch3.Location = new System.Drawing.Point(414, 105);
-            this.toggleSwitch3.Name = "toggleSwitch3";
-            this.toggleSwitch3.Size = new System.Drawing.Size(40, 20);
-            this.toggleSwitch3.TabIndex = 5;
-            this.toggleSwitch3.UseVisualStyleBackColor = true;
+            this.toggleSwitchText2.Checked = false;
+            this.toggleSwitchText2.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.toggleSwitchText2.Location = new System.Drawing.Point(6, 53);
+            this.toggleSwitchText2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.toggleSwitchText2.Name = "toggleSwitchText2";
+            this.toggleSwitchText2.Size = new System.Drawing.Size(207, 37);
+            this.toggleSwitchText2.TabIndex = 1;
+            this.toggleSwitchText2.Text = "大きい文字";
+            this.toggleSwitchText2.CheckedChanged += new System.EventHandler(this.toggleSwitchText_CheckedChanged);
             // 
             // FormTest3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(468, 450);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.toggleSwitchText2);
-            this.Controls.Add(this.toggleSwitch4);
-            this.Controls.Add(this.toggleSwitchText1);
-            this.Controls.Add(this.toggleSwitch3);
             this.Name = "FormTest3";
             this.Text = "FormTest3";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -261,10 +306,8 @@
         #endregion
         private CommonControlPlus.OnOffButton onOffButton;
         private CommonControlPlus.OnOffButtonPair onOffButtonPair;
-        private CommonControlPlus.ToggleSwitch toggleSwitch3;
-        private CommonControlPlus.ToggleSwitchText toggleSwitchText1;
+        private CommonControlPlus.ToggleSwitch toggleSwitch;
         private CommonControlPlus.ToggleSwitch toggleSwitch4;
-        private CommonControlPlus.ToggleSwitchText toggleSwitchText2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1_2;
         private System.Windows.Forms.Button button1_1;
@@ -277,5 +320,10 @@
         private System.Windows.Forms.Button button2_1;
         private System.Windows.Forms.Button button1_3;
         private System.Windows.Forms.Button button2_3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private CommonControlPlus.ToggleSwitch toggleSwitch1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private CommonControlPlus.ToggleSwitchText toggleSwitchText1;
+        private CommonControlPlus.ToggleSwitchText toggleSwitchText2;
     }
 }

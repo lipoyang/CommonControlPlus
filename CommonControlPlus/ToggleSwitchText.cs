@@ -13,6 +13,7 @@ namespace CommonControlPlus
     /// <summary>
     /// トグルスイッチ型のチェックボックス (文字あり)
     /// </summary>
+    [DefaultEvent("CheckedChanged")]
     public partial class ToggleSwitchText : UserControl
     {
         #region イベント
@@ -32,12 +33,19 @@ namespace CommonControlPlus
         /// </summary>
         [Category("表示")]
         [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)] // これが無いとビルド時にデザイナでの設定が消える！
         override public string Text
         {
-            get => this.label.Text;
-            set => this.label.Text = value;
+            get
+            {
+                return this.label.Text;
+            }
+            set
+            {
+                this.label.Text = value;
+                this.Invalidate();
+            }
         }
-
         /// <summary>
         /// コントロールがチェックされた状態かどうかを示します。
         /// </summary>

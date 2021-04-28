@@ -59,7 +59,6 @@
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(25, 20);
             this.label.TabIndex = 1;
-            this.label.Text = "text";
             this.label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toggleSwitch

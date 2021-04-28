@@ -42,7 +42,9 @@ namespace CommonControlPlus
             get; set;
         }
 
-        // フォント
+        /// <summary>
+        /// フォント
+        /// </summary>
         [Browsable(true)]
         override public Font Font
         {
