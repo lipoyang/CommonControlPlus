@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1_3 = new System.Windows.Forms.Button();
+            this.checkBox1_2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1_1 = new System.Windows.Forms.CheckBox();
             this.button1_2 = new System.Windows.Forms.Button();
             this.button1_1 = new System.Windows.Forms.Button();
-            this.checkBox1_1 = new System.Windows.Forms.CheckBox();
-            this.checkBox1_2 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.onOffButton = new CommonControlPlus.OnOffButton();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.button2_3 = new System.Windows.Forms.Button();
             this.checkBox2_2 = new System.Windows.Forms.CheckBox();
             this.checkBox2_1 = new System.Windows.Forms.CheckBox();
             this.button2_2 = new System.Windows.Forms.Button();
             this.button2_1 = new System.Windows.Forms.Button();
-            this.button1_3 = new System.Windows.Forms.Button();
-            this.button2_3 = new System.Windows.Forms.Button();
-            this.onOffButton2 = new CommonControlPlus.OnOffButton2();
-            this.onOffButton = new CommonControlPlus.OnOffButton();
+            this.onOffButtonPair = new CommonControlPlus.OnOffButtonPair();
             this.toggleSwitchText2 = new CommonControlPlus.ToggleSwitchText();
             this.toggleSwitch4 = new CommonControlPlus.ToggleSwitch();
             this.toggleSwitchText1 = new CommonControlPlus.ToggleSwitchText();
             this.toggleSwitch3 = new CommonControlPlus.ToggleSwitch();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -64,6 +64,36 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "OnOffButtonのテスト";
+            // 
+            // button1_3
+            // 
+            this.button1_3.Location = new System.Drawing.Point(6, 163);
+            this.button1_3.Name = "button1_3";
+            this.button1_3.Size = new System.Drawing.Size(104, 23);
+            this.button1_3.TabIndex = 11;
+            this.button1_3.Text = "TurnedOnのテスト";
+            this.button1_3.UseVisualStyleBackColor = true;
+            this.button1_3.Click += new System.EventHandler(this.button1_3_Click);
+            // 
+            // checkBox1_2
+            // 
+            this.checkBox1_2.AutoSize = true;
+            this.checkBox1_2.Location = new System.Drawing.Point(6, 83);
+            this.checkBox1_2.Name = "checkBox1_2";
+            this.checkBox1_2.Size = new System.Drawing.Size(103, 16);
+            this.checkBox1_2.TabIndex = 7;
+            this.checkBox1_2.Text = "OFFのキャンセル";
+            this.checkBox1_2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1_1
+            // 
+            this.checkBox1_1.AutoSize = true;
+            this.checkBox1_1.Location = new System.Drawing.Point(6, 61);
+            this.checkBox1_1.Name = "checkBox1_1";
+            this.checkBox1_1.Size = new System.Drawing.Size(97, 16);
+            this.checkBox1_1.TabIndex = 6;
+            this.checkBox1_1.Text = "ONのキャンセル";
+            this.checkBox1_1.UseVisualStyleBackColor = true;
             // 
             // button1_2
             // 
@@ -85,40 +115,43 @@
             this.button1_1.UseVisualStyleBackColor = true;
             this.button1_1.Click += new System.EventHandler(this.button1_1_Click);
             // 
-            // checkBox1_1
+            // onOffButton
             // 
-            this.checkBox1_1.AutoSize = true;
-            this.checkBox1_1.Location = new System.Drawing.Point(6, 61);
-            this.checkBox1_1.Name = "checkBox1_1";
-            this.checkBox1_1.Size = new System.Drawing.Size(97, 16);
-            this.checkBox1_1.TabIndex = 6;
-            this.checkBox1_1.Text = "ONのキャンセル";
-            this.checkBox1_1.UseVisualStyleBackColor = true;
+            this.onOffButton.Location = new System.Drawing.Point(6, 18);
+            this.onOffButton.Name = "onOffButton";
+            this.onOffButton.OffButtonText = "切断します";
+            this.onOffButton.OnButtonText = "接続します";
+            this.onOffButton.Size = new System.Drawing.Size(75, 23);
+            this.onOffButton.TabIndex = 3;
+            this.onOffButton.Text = "接続します";
+            this.onOffButton.UseVisualStyleBackColor = true;
+            this.onOffButton.ClickOn += new System.ComponentModel.CancelEventHandler(this.onOffButton_ClickOn);
+            this.onOffButton.ClickOff += new System.ComponentModel.CancelEventHandler(this.onOffButton_ClickOff);
             // 
-            // checkBox1_2
+            // groupBox
             // 
-            this.checkBox1_2.AutoSize = true;
-            this.checkBox1_2.Location = new System.Drawing.Point(6, 83);
-            this.checkBox1_2.Name = "checkBox1_2";
-            this.checkBox1_2.Size = new System.Drawing.Size(103, 16);
-            this.checkBox1_2.TabIndex = 7;
-            this.checkBox1_2.Text = "OFFのキャンセル";
-            this.checkBox1_2.UseVisualStyleBackColor = true;
+            this.groupBox.Controls.Add(this.button2_3);
+            this.groupBox.Controls.Add(this.checkBox2_2);
+            this.groupBox.Controls.Add(this.checkBox2_1);
+            this.groupBox.Controls.Add(this.button2_2);
+            this.groupBox.Controls.Add(this.button2_1);
+            this.groupBox.Controls.Add(this.onOffButtonPair);
+            this.groupBox.Location = new System.Drawing.Point(12, 227);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(184, 198);
+            this.groupBox.TabIndex = 10;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "OnOffButtonPairのテスト";
             // 
-            // groupBox2
+            // button2_3
             // 
-            this.groupBox2.Controls.Add(this.button2_3);
-            this.groupBox2.Controls.Add(this.checkBox2_2);
-            this.groupBox2.Controls.Add(this.checkBox2_1);
-            this.groupBox2.Controls.Add(this.button2_2);
-            this.groupBox2.Controls.Add(this.button2_1);
-            this.groupBox2.Controls.Add(this.onOffButton2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 227);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(184, 198);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "OnOffButton2のテスト";
+            this.button2_3.Location = new System.Drawing.Point(5, 168);
+            this.button2_3.Name = "button2_3";
+            this.button2_3.Size = new System.Drawing.Size(104, 23);
+            this.button2_3.TabIndex = 12;
+            this.button2_3.Text = "TurnedOnのテスト";
+            this.button2_3.UseVisualStyleBackColor = true;
+            this.button2_3.Click += new System.EventHandler(this.button2_3_Click);
             // 
             // checkBox2_2
             // 
@@ -160,49 +193,16 @@
             this.button2_1.UseVisualStyleBackColor = true;
             this.button2_1.Click += new System.EventHandler(this.button2_1_Click);
             // 
-            // button1_3
+            // onOffButtonPair
             // 
-            this.button1_3.Location = new System.Drawing.Point(6, 163);
-            this.button1_3.Name = "button1_3";
-            this.button1_3.Size = new System.Drawing.Size(104, 23);
-            this.button1_3.TabIndex = 11;
-            this.button1_3.Text = "TurnedOnのテスト";
-            this.button1_3.UseVisualStyleBackColor = true;
-            this.button1_3.Click += new System.EventHandler(this.button1_3_Click);
-            // 
-            // button2_3
-            // 
-            this.button2_3.Location = new System.Drawing.Point(5, 168);
-            this.button2_3.Name = "button2_3";
-            this.button2_3.Size = new System.Drawing.Size(104, 23);
-            this.button2_3.TabIndex = 12;
-            this.button2_3.Text = "TurnedOnのテスト";
-            this.button2_3.UseVisualStyleBackColor = true;
-            this.button2_3.Click += new System.EventHandler(this.button2_3_Click);
-            // 
-            // onOffButton2
-            // 
-            this.onOffButton2.Location = new System.Drawing.Point(6, 18);
-            this.onOffButton2.Name = "onOffButton2";
-            this.onOffButton2.OffButtonText = "切断します";
-            this.onOffButton2.OnButtonText = "接続します";
-            this.onOffButton2.Size = new System.Drawing.Size(160, 23);
-            this.onOffButton2.TabIndex = 4;
-            this.onOffButton2.ClickOn += new System.ComponentModel.CancelEventHandler(this.onOffButton2_ClickOn);
-            this.onOffButton2.ClickOff += new System.ComponentModel.CancelEventHandler(this.onOffButton2_ClickOff);
-            // 
-            // onOffButton
-            // 
-            this.onOffButton.Location = new System.Drawing.Point(6, 18);
-            this.onOffButton.Name = "onOffButton";
-            this.onOffButton.OffButtonText = "切断します";
-            this.onOffButton.OnButtonText = "接続します";
-            this.onOffButton.Size = new System.Drawing.Size(75, 23);
-            this.onOffButton.TabIndex = 3;
-            this.onOffButton.Text = "接続します";
-            this.onOffButton.UseVisualStyleBackColor = true;
-            this.onOffButton.ClickOn += new System.ComponentModel.CancelEventHandler(this.onOffButton_ClickOn);
-            this.onOffButton.ClickOff += new System.ComponentModel.CancelEventHandler(this.onOffButton_ClickOff);
+            this.onOffButtonPair.Location = new System.Drawing.Point(6, 18);
+            this.onOffButtonPair.Name = "onOffButtonPair";
+            this.onOffButtonPair.OffButtonText = "切断します";
+            this.onOffButtonPair.OnButtonText = "接続します";
+            this.onOffButtonPair.Size = new System.Drawing.Size(160, 23);
+            this.onOffButtonPair.TabIndex = 4;
+            this.onOffButtonPair.ClickOn += new System.ComponentModel.CancelEventHandler(this.onOffButtonPair_ClickOn);
+            this.onOffButtonPair.ClickOff += new System.ComponentModel.CancelEventHandler(this.onOffButtonPair_ClickOff);
             // 
             // toggleSwitchText2
             // 
@@ -242,7 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toggleSwitchText2);
             this.Controls.Add(this.toggleSwitch4);
@@ -252,15 +252,15 @@
             this.Text = "FormTest3";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private CommonControlPlus.OnOffButton onOffButton;
-        private CommonControlPlus.OnOffButton2 onOffButton2;
+        private CommonControlPlus.OnOffButtonPair onOffButtonPair;
         private CommonControlPlus.ToggleSwitch toggleSwitch3;
         private CommonControlPlus.ToggleSwitchText toggleSwitchText1;
         private CommonControlPlus.ToggleSwitch toggleSwitch4;
@@ -270,7 +270,7 @@
         private System.Windows.Forms.Button button1_1;
         private System.Windows.Forms.CheckBox checkBox1_2;
         private System.Windows.Forms.CheckBox checkBox1_1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.CheckBox checkBox2_2;
         private System.Windows.Forms.CheckBox checkBox2_1;
         private System.Windows.Forms.Button button2_2;

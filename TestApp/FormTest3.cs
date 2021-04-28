@@ -71,16 +71,16 @@ namespace TestApp
 
         private void button2_1_Click(object sender, EventArgs e)
         {
-            onOffButton2.TurnOn();
+            onOffButtonPair.TurnOn();
         }
 
         private void button2_2_Click(object sender, EventArgs e)
         {
-            onOffButton2.TurnOff();
+            onOffButtonPair.TurnOff();
         }
         private void button2_3_Click(object sender, EventArgs e)
         {
-            if (onOffButton2.TurnedOn)
+            if (onOffButtonPair.TurnedOn)
             {
                 MessageBox.Show("ON状態です");
             }
@@ -90,7 +90,7 @@ namespace TestApp
             }
         }
 
-        private void onOffButton2_ClickOn(object sender, CancelEventArgs e)
+        private void onOffButtonPair_ClickOn(object sender, CancelEventArgs e)
         {
             if (checkBox2_1.Checked)
             {
@@ -103,7 +103,7 @@ namespace TestApp
             }
         }
 
-        private void onOffButton2_ClickOff(object sender, CancelEventArgs e)
+        private void onOffButtonPair_ClickOff(object sender, CancelEventArgs e)
         {
             if (checkBox2_2.Checked)
             {

@@ -1,6 +1,6 @@
 ﻿namespace CommonControlPlus
 {
-    partial class OnOffButton2
+    partial class OnOffButtonPair
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

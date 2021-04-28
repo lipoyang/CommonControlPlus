@@ -14,7 +14,7 @@ namespace CommonControlPlus
     /// ON/OFFボタン (ボタン2個)
     /// </summary>
     [DefaultEvent("ClickOn")]
-    public partial class OnOffButton2 : UserControl
+    public partial class OnOffButtonPair : UserControl
     {
         #region イベント
 
@@ -104,7 +104,7 @@ namespace CommonControlPlus
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public OnOffButton2()
+        public OnOffButtonPair()
         {
             InitializeComponent();
             TurnedOn = false;

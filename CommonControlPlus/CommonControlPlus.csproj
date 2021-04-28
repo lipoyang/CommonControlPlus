@@ -56,11 +56,11 @@
     <Compile Include="OnOffButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="OnOffButton2.cs">
+    <Compile Include="OnOffButtonPair.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OnOffButton2.Designer.cs">
-      <DependentUpon>OnOffButton2.cs</DependentUpon>
+    <Compile Include="OnOffButtonPair.Designer.cs">
+      <DependentUpon>OnOffButtonPair.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxNumeric.cs">
@@ -86,8 +86,8 @@
     <EmbeddedResource Include="OnOffButton.resx">
       <DependentUpon>OnOffButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OnOffButton2.resx">
-      <DependentUpon>OnOffButton2.cs</DependentUpon>
+    <EmbeddedResource Include="OnOffButtonPair.resx">
+      <DependentUpon>OnOffButtonPair.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextBoxPlus.resx">
       <DependentUpon>TextBoxPlus.cs</DependentUpon>
