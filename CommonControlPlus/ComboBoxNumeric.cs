@@ -27,7 +27,7 @@ namespace CommonControlPlus
         /// </summary>
         [Category("拡張機能")]
         [Browsable(true)]
-        public event InputValueCheckFunction InputValueCheck = null;
+        public InputValueCheckFunction InputValueCheck = null; // あえてeventでなくdelegateとする
 
         #endregion
 
