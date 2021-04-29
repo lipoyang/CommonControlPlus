@@ -179,7 +179,7 @@ namespace CommonControlPlus
             this.textBox.SizeChanged += new System.EventHandler(this.OnSizeChanged);
 
             // オートリピート用タイマ
-            autoRepeatTimer = new Timer();
+            autoRepeatTimer = new Timer(this.components); // リソース解放のための引数を用いる
             autoRepeatTimer.Tick += AutoRepeatHandler;
             autoRepeatTimer.Stop();
         }
@@ -348,6 +348,7 @@ namespace CommonControlPlus
             // デフォルトの幅
             const int W = 110;
 
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
