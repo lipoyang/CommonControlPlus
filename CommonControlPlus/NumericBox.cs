@@ -198,9 +198,11 @@ namespace CommonControlPlus
         // オートリピートのステップ
         private Type autoRepeatStep = (dynamic)0;
         // オートリピート用タイマ
-        private Timer autoRepeatTimer;
+        private readonly Timer autoRepeatTimer;
         // オートリピートの排他制御用
-        private object autoRepeatLock = new object();
+        private readonly object autoRepeatLock = new object();
+        // オートリピートの開始前の値
+        private Type oldValue;
 
         // オートリピート用タイマハンドラ
         private void AutoRepeatHandler(object sender, EventArgs e)
@@ -225,14 +227,17 @@ namespace CommonControlPlus
         {
             lock (autoRepeatLock)
             {
+                oldValue = textBox.Value; // 元の値を保持
+
                 if ((Button)sender == buttonDown)
                 {
-                    autoRepeatStep = -(dynamic)StepValue;
+                    autoRepeatStep = -(dynamic)StepValue; // ダウンボタン
                 }
                 else
                 {
-                    autoRepeatStep = +(dynamic)StepValue;
+                    autoRepeatStep = +(dynamic)StepValue; // アップボタン
                 }
+                // タイマの開始
                 autoRepeatState = AutoRepeatState.Start;
                 autoRepeatTimer.Interval = AutoRepeatDelay;
                 autoRepeatTimer.Start();
@@ -244,20 +249,23 @@ namespace CommonControlPlus
         {
             lock (autoRepeatLock)
             {
+                // タイマの停止
                 autoRepeatTimer.Stop();
 
                 // 通常の短いクリックのときは1回ぶんだけ増減
                 if (autoRepeatState == AutoRepeatState.Start) CountUpDown();
                 autoRepeatState = 0;
             }
-            // イベント発行
-            this.Changed(this, e);
+            // 値が変化していたらイベント発行
+            if(textBox.Value != (dynamic)oldValue)
+            {
+                this.Changed(this, e);
+            }
         }
 
         // カウントアップ/ダウン
         private void CountUpDown()
         {
-            Type oldVal = textBox.Value;
             Type newVal = (dynamic)textBox.Value + autoRepeatStep;
 
             if ((MaxValue != null) && (newVal.CompareTo(MaxValue) > 0))
@@ -278,12 +286,6 @@ namespace CommonControlPlus
             this.Changed(this, e);
         }
 
-        // 入力チェック
-        private bool textBox_InputValueCheck(Type inputVal)
-        {
-            return true;
-        }
-
         // サイズ変化時の処理
         private void OnSizeChanged(object sender, System.EventArgs e)
         {
@@ -293,12 +295,11 @@ namespace CommonControlPlus
                 this.Height = textBox.Height+2;
             }
             int h = this.Height;
-            int w = this.Width;
             buttonDown.Width = h;
             buttonUp.Width = h;
-            //textBox.Width = w - 2 * (h - 2);
 
             oldHeight = this.Height;
+            oldTextBoxHeight = this.textBox.Height;
 
             // 再描画
             this.Refresh();

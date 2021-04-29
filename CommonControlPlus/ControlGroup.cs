@@ -62,7 +62,7 @@ namespace CommonControlPlus
         private bool _Enabled = false;
         
         // 登録されたコントロール
-        private List<Control> Controls = new List<Control>();
+        private readonly List<Control> Controls = new List<Control>();
         
         #endregion
 
