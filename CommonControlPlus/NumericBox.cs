@@ -172,14 +172,11 @@ namespace CommonControlPlus
             // デフォルトは右詰め
             this.TextAlign = HorizontalAlignment.Right;
 
-            // デフォルトの最小幅は1
-            this.StepValue = (dynamic)1;
-            // デフォルトのサイズ
-            this.Height = 20;
-            this.Width = 80;
-            oldHeight = this.Height;
             // サイズ変化時の処理
+            oldHeight = this.Height;
+            oldTextBoxHeight = this.textBox.Height;
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
+            this.textBox.SizeChanged += new System.EventHandler(this.OnSizeChanged);
 
             // オートリピート用タイマ
             autoRepeatTimer = new Timer();
@@ -193,6 +190,7 @@ namespace CommonControlPlus
 
         // 前回の高さを保持
         private int oldHeight;
+        private int oldTextBoxHeight;
 
         // オートリピート状態
         private enum AutoRepeatState { Stop, Start, Repeat };
@@ -289,7 +287,8 @@ namespace CommonControlPlus
         // サイズ変化時の処理
         private void OnSizeChanged(object sender, System.EventArgs e)
         {
-            if (this.Height != oldHeight)
+            if ((this.Height != oldHeight) || 
+                (this.textBox.Height != oldTextBoxHeight))
             {
                 this.Height = textBox.Height+2;
             }
@@ -343,83 +342,80 @@ namespace CommonControlPlus
         // 初期化処理
         private void InitializeComponent()
         {
+            // デフォルトの高さ・ボタンの幅
+            const int H = 20;
+            // デフォルトの幅
+            const int W = 110;
+
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.textBox = new CommonControlPlus.TextBoxNumeric<Type>();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
+
             // tableLayoutPanel
-            // 
             this.tableLayoutPanel.ColumnCount = 3;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel.Controls.Add(this.buttonDown, 0, 0);
-            this.tableLayoutPanel.Controls.Add(this.buttonUp, 2, 0);
             this.tableLayoutPanel.Controls.Add(this.textBox, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.buttonUp, 2, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(124, 23);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(W, H);
             this.tableLayoutPanel.TabIndex = 0;
-            // 
+
             // buttonDown
-            // 
             this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDown.Location = new System.Drawing.Point(0, 0);
             this.buttonDown.Margin = new System.Windows.Forms.Padding(0);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(23, 23);
+            this.buttonDown.Size = new System.Drawing.Size(H, H);
             this.buttonDown.TabIndex = 0;
             this.buttonDown.Text = "-";
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.MouseDown += buttons_MouseDown;
             this.buttonDown.MouseUp += buttons_MouseUp;
-            // 
+            
             // buttonUp
-            // 
             this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUp.Location = new System.Drawing.Point(101, 0);
             this.buttonUp.Margin = new System.Windows.Forms.Padding(0);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(23, 23);
+            this.buttonUp.Size = new System.Drawing.Size(H, H);
             this.buttonUp.TabIndex = 2;
             this.buttonUp.Text = "+";
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.MouseDown += buttons_MouseDown;
             this.buttonUp.MouseUp += buttons_MouseUp;
-            // 
+            
             // textBox
-            // 
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox.ErrorMessage = "";
             this.textBox.ErrorMessageBoxEnabled = false;
             this.textBox.ErrorOutputEnabled = false;
             this.textBox.FormatString = "";
-            this.textBox.Location = new System.Drawing.Point(23, 1);
             this.textBox.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.textBox.MaxValue = null;
             this.textBox.MinValue = null;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(78, 19);
-            this.textBox.StepValue = null;
-            this.textBox.TabIndex = 3;
+            this.textBox.StepValue = (dynamic)1;
+            this.textBox.TabIndex = 1;
             this.textBox.Text = "0";
             this.textBox.Value = (dynamic)0;
             this.textBox.Changed += this.textBox_Changed;
-            // 
+            
             // NumericBox
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "NumericBox";
-            this.Size = new System.Drawing.Size(124, 23);
+            this.Size = new System.Drawing.Size(W, H);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
