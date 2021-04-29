@@ -105,6 +105,20 @@ namespace CommonControlPlus
         }
 
         /// <summary>
+        /// +/-のオートリピート開始までの時間[ミリ秒]
+        /// </summary>
+        [Category("拡張機能")]
+        [Browsable(true)]
+        public int AutoRepeatDelay { set; get; } = 500;
+
+        /// <summary>
+        /// +/-のオートリピート周期[ミリ秒]
+        /// </summary>
+        [Category("拡張機能")]
+        [Browsable(true)]
+        public int AutoRepeatInterval { set; get; } = 200;
+
+        /// <summary>
         /// 数値
         /// </summary>
         public Type Value
@@ -138,7 +152,7 @@ namespace CommonControlPlus
         }
 
         #endregion
- 
+
         #region コンストラクタ
         public NumericBox()
         {
@@ -152,6 +166,11 @@ namespace CommonControlPlus
             oldHeight = this.Height;
             // サイズ変化時の処理
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
+
+            // オートリピート用タイマ
+            autoRepeatTimer = new Timer();
+            autoRepeatTimer.Tick += AutoRepeatHandler;
+            autoRepeatTimer.Stop();
         }
 
         #endregion
@@ -161,41 +180,86 @@ namespace CommonControlPlus
         // 前回の高さを保持
         private int oldHeight;
 
-        // ダウンボタンが押されたとき
-        private void buttonDown_Click(object sender, EventArgs e)
+        // オートリピート状態
+        private enum AutoRepeatState { Stop, Start, Repeat };
+        private AutoRepeatState autoRepeatState = AutoRepeatState.Stop;
+        // オートリピートのステップ
+        private Type autoRepeatStep = (dynamic)0;
+        // オートリピート用タイマ
+        private Timer autoRepeatTimer;
+        // オートリピートの排他制御用
+        private object autoRepeatLock = new object();
+
+        // オートリピート用タイマハンドラ
+        private void AutoRepeatHandler(object sender, EventArgs e)
         {
-            Type val = (dynamic)textBox.Value - (Type)StepValue;
-            if(MinValue != null)
+            lock (autoRepeatLock)
             {
-                if (val.CompareTo(MinValue) > 0)
+                // オートリピート開始
+                if (autoRepeatState == AutoRepeatState.Start)
                 {
-                    textBox.Value = val;
+                    autoRepeatTimer.Stop();
+                    autoRepeatState = AutoRepeatState.Repeat;
+                    autoRepeatTimer.Interval = AutoRepeatInterval;
+                    autoRepeatTimer.Start();
                 }
-                else
-                {
-                    textBox.Value = (Type)MinValue;
-                }
+                // カウントアップダウン
+                CountUpDown();
             }
         }
 
-        // アップボタンが押されたとき
-        private void buttonUp_Click(object sender, EventArgs e)
+        // アップ・ダウンボタンが押されたとき
+        private void buttons_MouseDown(object sender, MouseEventArgs e)
         {
-            Type val = (dynamic)textBox.Value + (Type)StepValue;
-            if (MaxValue != null)
+            lock (autoRepeatLock)
             {
-                if (val.CompareTo(MaxValue) < 0)
+                if ((Button)sender == buttonDown)
                 {
-                    textBox.Value = val;
+                    autoRepeatStep = -(dynamic)StepValue;
                 }
                 else
                 {
-                    textBox.Value = (Type)MaxValue;
+                    autoRepeatStep = +(dynamic)StepValue;
                 }
+                autoRepeatState = AutoRepeatState.Start;
+                autoRepeatTimer.Interval = AutoRepeatDelay;
+                autoRepeatTimer.Start();
             }
         }
 
-        // 値が変化したとき
+        // アップ・ダウンボタンが離されたとき
+        private void buttons_MouseUp(object sender, MouseEventArgs e)
+        {
+            lock (autoRepeatLock)
+            {
+                autoRepeatTimer.Stop();
+
+                // 通常の短いクリックのときは1回ぶんだけ増減
+                if (autoRepeatState == AutoRepeatState.Start) CountUpDown();
+                autoRepeatState = 0;
+            }
+            // イベント発行
+            this.Changed(this, e);
+        }
+
+        // カウントアップ/ダウン
+        private void CountUpDown()
+        {
+            Type oldVal = textBox.Value;
+            Type newVal = (dynamic)textBox.Value + autoRepeatStep;
+
+            if ((MaxValue != null) && (newVal.CompareTo(MaxValue) > 0))
+            {
+                newVal = (Type)MaxValue;
+            }
+            if ((MinValue != null) && (newVal.CompareTo(MinValue) < 0))
+            {
+                newVal = (Type)MinValue;
+            }
+            textBox.Value = newVal;
+        }
+
+        // 入力されたテキストの変更が確定したとき
         private void textBox_Changed(object sender, EventArgs e)
         {
             // イベント発行
@@ -240,24 +304,19 @@ namespace CommonControlPlus
             //this.Bounds = bounds;
             //this.Margin = margin;
         }
-        #endregion
+#endregion
 
-        #region コンポーネント デザイナーで生成されたコード
+#region コンポーネント デザイナーで生成されたコード
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonUp;
         private TextBoxNumeric<Type> textBox;
 
-        /// <summary> 
-        /// 必要なデザイナー変数です。
-        /// </summary>
+        // リソースの管理用
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// 使用中のリソースをすべてクリーンアップします。
-        /// </summary>
-        /// <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        // 使用中のリソースをすべてクリーンアップします。
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -267,10 +326,7 @@ namespace CommonControlPlus
             base.Dispose(disposing);
         }
 
-        /// <summary> 
-        /// デザイナー サポートに必要なメソッドです。このメソッドの内容を 
-        /// コード エディターで変更しないでください。
-        /// </summary>
+        // 初期化処理
         private void InitializeComponent()
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -308,7 +364,8 @@ namespace CommonControlPlus
             this.buttonDown.TabIndex = 0;
             this.buttonDown.Text = "-";
             this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
+            this.buttonDown.MouseDown += buttons_MouseDown;
+            this.buttonDown.MouseUp += buttons_MouseUp;
             // 
             // buttonUp
             // 
@@ -320,7 +377,8 @@ namespace CommonControlPlus
             this.buttonUp.TabIndex = 2;
             this.buttonUp.Text = "+";
             this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            this.buttonUp.MouseDown += buttons_MouseDown;
+            this.buttonUp.MouseUp += buttons_MouseUp;
             // 
             // textBox
             // 
@@ -351,10 +409,9 @@ namespace CommonControlPlus
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>

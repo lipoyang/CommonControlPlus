@@ -33,6 +33,7 @@ namespace TestApp
             numericBoxDouble.MaxValue = 25;
             numericBoxDouble.MinValue = -25;
             numericBoxDouble.StepValue = 0.25;
+            numericBoxDouble.FormatString = "F2";
             textBoxDouble1.Value = 25;
             textBoxDouble2.Value = -25;
             textBoxDouble3.Value = 0.25;
@@ -42,6 +43,7 @@ namespace TestApp
             numericBoxDecimal.MaxValue = 25m;
             numericBoxDecimal.MinValue = -25m;
             numericBoxDecimal.StepValue = 0.25m;
+            numericBoxDecimal.FormatString = "F3";
             textBoxDecimal1.Value = 25m;
             textBoxDecimal2.Value = -25m;
             textBoxDecimal3.Value = 0.25m;
