@@ -71,7 +71,6 @@ namespace CommonControlPlus
         /// </summary>
         public ComboBoxPlus()
         {
-            this.InitializeComponent();
             this.CausesValidation = true; // 検証イベントを有効
         }
 
@@ -143,39 +142,31 @@ namespace CommonControlPlus
         // 前回の選択アイテム (フォーカスが外れたときの判定用)
         protected object OldItem = null;
 
-        // 初期化
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // ComboBoxPlus
-            // 
-            this.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPlus_SelectedIndexChanged);
-            this.Enter += new System.EventHandler(this.ComboBoxPlus_Enter);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ComboBoxPlus_KeyDown);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBoxPlus_Validating);
-            this.ResumeLayout(false);
-
-        }
-
         // フォーカスが入ったとき
-        private void ComboBoxPlus_Enter(object sender, EventArgs e)
+        protected override void OnEnter(EventArgs e)
         {
+            base.OnEnter(e);
+
+            // 前回の値を更新
             OldText = this.Text;
         }
 
         // リスト選択が変更されたとき
-        private void ComboBoxPlus_SelectedIndexChanged(object sender, EventArgs e)
+        protected override void OnSelectedIndexChanged(EventArgs e)
         {
+            base.OnSelectedIndexChanged(e);
+
             // 前回の選択値を更新し、イベント発行
             OldItem = this.SelectedItem;
             OldText = this.Text;
-            Changed(sender, e);
+            Changed(this, e);
         }
 
         // キーが押されたとき
-        private void ComboBoxPlus_KeyDown(object sender, KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
+            base.OnKeyDown(e);
+            
             //Enterキーが押されたか？
             if (e.KeyCode == Keys.Enter)
             {
@@ -185,22 +176,24 @@ namespace CommonControlPlus
                     // 入力チェックと値の更新
                     if (InputCheckAndUpdate(this.Text))
                     {
-                        Changed(sender, e); // イベント発行
+                        Changed(this, e); // イベント発行
                     }
                 }
             }
         }
 
         // フォーカスが外れたときの検証イベント
-        private void ComboBoxPlus_Validating(object sender, CancelEventArgs e)
+        protected override void OnValidating(CancelEventArgs e)
         {
+            base.OnValidating(e);
+
             // 前回の値から変更されているか？
             if (OldText != this.Text)
             {
                 // 入力チェックと値の更新
                 if (InputCheckAndUpdate(this.Text))
                 {
-                    Changed(sender, e); // イベント発行
+                    Changed(this, e); // イベント発行
                 }
                 else
                 {

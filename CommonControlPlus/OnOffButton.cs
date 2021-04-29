@@ -89,14 +89,6 @@ namespace CommonControlPlus
         #region 公開メソッド
 
         /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public OnOffButton()
-        {
-            this.InitializeComponent();
-        }
-
-        /// <summary>
         /// ソフトでONする
         /// </summary>
         public void TurnOn()
@@ -126,20 +118,11 @@ namespace CommonControlPlus
         // OFFボタンのテキスト
         private string _OffButtonText = "OFF";
 
-        // 初期化
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // OnOffButton
-            // 
-            this.Click += new System.EventHandler(this.OnOffButton_Click);
-            this.ResumeLayout(false);
-        }
-
         // クリックされたとき
-        private void OnOffButton_Click(object sender, EventArgs e)
+        protected override void OnClick(EventArgs e)
         {
+            base.OnClick(e);
+
             // イベント発行
             var result = new CancelEventArgs();
             if (TurnedOn)

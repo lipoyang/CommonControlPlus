@@ -70,7 +70,6 @@ namespace CommonControlPlus
         /// </summary>
         public TextBoxPlus()
         {
-            this.InitializeComponent();
             this.CausesValidation = true; // 検証イベントを有効
         }
         #endregion
@@ -80,29 +79,20 @@ namespace CommonControlPlus
         // 前回のテキスト (フォーカスが外れたときの判定用)
         protected string OldText = "";
 
-        // 初期化
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // TextBoxPlus
-            // 
-            this.Enter += new System.EventHandler(this.TextBoxPlus_Enter);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxPlus_KeyDown);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxPlus_Validating);
-            this.ResumeLayout(false);
-
-        }
-
         // フォーカスが入ったとき
-        private void TextBoxPlus_Enter(object sender, EventArgs e)
+        protected override void OnEnter(EventArgs e)
         {
+            base.OnEnter(e);
+
+            // 前回の値を更新
             OldText = this.Text;
         }
 
         // キーが押されたとき
-        private void TextBoxPlus_KeyDown(object sender, KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
+            base.OnKeyDown(e);
+
             //Enterキーが押されたか？
             if (e.KeyCode == Keys.Enter)
             {
@@ -112,22 +102,24 @@ namespace CommonControlPlus
                     // 入力チェックと値の更新
                     if (InputCheckAndUpdate(this.Text))
                     {
-                        Changed(sender, e); // イベント発行
+                        Changed(this, e); // イベント発行
                     }
                 }
             }
         }
 
         // フォーカスが外れたときの検証イベント
-        private void TextBoxPlus_Validating(object sender, CancelEventArgs e)
+        protected override void OnValidating(CancelEventArgs e)
         {
+            base.OnValidating(e);
+
             // 前回の値から変更されているか？
             if (OldText != this.Text)
             {
                 // 入力チェックと値の更新
                 if (InputCheckAndUpdate(this.Text))
                 {
-                    Changed(sender, e); // イベント発行
+                    Changed(this, e); // イベント発行
                 }
                 else
                 {
