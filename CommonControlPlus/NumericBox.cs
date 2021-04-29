@@ -119,6 +119,17 @@ namespace CommonControlPlus
         public int AutoRepeatInterval { set; get; } = 200;
 
         /// <summary>
+        /// テキストの水平配置
+        /// </summary>
+        [Category("表示")]
+        [Browsable(true)]
+        public HorizontalAlignment TextAlign
+        {
+            get => textBox.TextAlign;
+            set => textBox.TextAlign = value;
+        }
+
+        /// <summary>
         /// 数値
         /// </summary>
         public Type Value
@@ -157,6 +168,9 @@ namespace CommonControlPlus
         public NumericBox()
         {
             InitializeComponent();
+
+            // デフォルトは右詰め
+            this.TextAlign = HorizontalAlignment.Right;
 
             // デフォルトの最小幅は1
             this.StepValue = (dynamic)1;
@@ -306,7 +320,7 @@ namespace CommonControlPlus
         }
 #endregion
 
-#region コンポーネント デザイナーで生成されたコード
+#region コンポーネント デザイナーで生成されたコードを流用
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Button buttonDown;

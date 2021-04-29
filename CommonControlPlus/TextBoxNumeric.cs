@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.ComponentModel; // [Browsable(true)]
 
 namespace CommonControlPlus
@@ -90,6 +91,14 @@ namespace CommonControlPlus
             }
         }
 
+        #endregion
+
+        #region コンストラクタ
+        public TextBoxNumeric()
+        {
+            // デフォルトは右詰め
+            this.TextAlign = HorizontalAlignment.Right;
+        }
         #endregion
 
         #region 内部処理
