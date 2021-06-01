@@ -23,14 +23,13 @@ namespace CommonControlPlus
         /// 値の変更が確定したときに発生するイベント
         /// </summary>
         [Category("拡張機能")]
+        [Description("値の変更が確定したときに発生します。")]
         [Browsable(true)]
         public event EventHandler Changed = delegate { };
 
         /// <summary>
         /// 入力値チェック関数をここに設定します
         /// </summary>
-        [Category("拡張機能")]
-        [Browsable(true)]
         public TextBoxNumeric<Type>.InputValueCheckFunction InputValueCheck
         {
             get => textBox.InputValueCheck;
@@ -45,6 +44,7 @@ namespace CommonControlPlus
         /// 入力できる最大値
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力できる最大値")]
         [Browsable(true)]
         public Type? MaxValue {
             set => textBox.MaxValue = value;
@@ -55,6 +55,7 @@ namespace CommonControlPlus
         /// 入力できる最小値
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力できる最小値")]
         [Browsable(true)]
         public Type? MinValue
         {
@@ -66,6 +67,7 @@ namespace CommonControlPlus
         /// 入力できる値の最小幅
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力できる最小幅")]
         [Browsable(true)]
         public Type? StepValue
         {
@@ -77,6 +79,7 @@ namespace CommonControlPlus
         /// 入力エラー時にメッセージボックスでメッセージを出すか？
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力エラー時にメッセージボックスでメッセージを出すか？")]
         [Browsable(true)]
         public bool ErrorMessageBoxEnabled
         {
@@ -87,6 +90,7 @@ namespace CommonControlPlus
         /// 入力エラー時にコンソール出力にメッセージを出すか？
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力エラー時にコンソール出力にメッセージを出すか？")]
         [Browsable(true)]
         public bool ErrorOutputEnabled
         {
@@ -97,6 +101,7 @@ namespace CommonControlPlus
         /// エラーメッセージをここに設定します
         /// </summary>
         [Category("拡張機能")]
+        [Description("エラーメッセージをここに設定します。")]
         [Browsable(true)]
         public string ErrorMessage
         {
@@ -108,6 +113,7 @@ namespace CommonControlPlus
         /// +/-のオートリピート開始までの時間[ミリ秒]
         /// </summary>
         [Category("拡張機能")]
+        [Description("+/-のオートリピート開始までの時間[ミリ秒]")]
         [Browsable(true)]
         public int AutoRepeatDelay { set; get; } = 500;
 
@@ -115,6 +121,7 @@ namespace CommonControlPlus
         /// +/-のオートリピート周期[ミリ秒]
         /// </summary>
         [Category("拡張機能")]
+        [Description("+/-のオートリピート周期[ミリ秒]")]
         [Browsable(true)]
         public int AutoRepeatInterval { set; get; } = 200;
 
@@ -122,6 +129,7 @@ namespace CommonControlPlus
         /// テキストの水平配置
         /// </summary>
         [Category("表示")]
+        [Description("テキストの水平配置")]
         [Browsable(true)]
         public HorizontalAlignment TextAlign
         {
@@ -155,6 +163,7 @@ namespace CommonControlPlus
         /// 数値書式指定文字列
         /// </summary>
         [Category("拡張機能")]
+        [Description("数値書式指定文字列")]
         [Browsable(true)]
         public string FormatString
         {

@@ -22,12 +22,14 @@ namespace CommonControlPlus
         /// ONボタンがおされたときのイベント
         /// </summary>
         [Category("拡張機能")]
+        [Description("ONボタンがおされたときに発生します。")]
         [Browsable(true)]
         public event CancelEventHandler ClickOn = delegate { };
         /// <summary>
         /// OFFボタンがおされたときのイベント
         /// </summary>
         [Category("拡張機能")]
+        [Description("OFFボタンがおされたときに発生します。")]
         [Browsable(true)]
         public event CancelEventHandler ClickOff = delegate { };
 
@@ -49,6 +51,7 @@ namespace CommonControlPlus
         /// ONボタンのテキスト
         /// </summary>
         [Category("拡張機能")]
+        [Description("ONボタンのテキスト")]
         [Browsable(true)]
         public string OnButtonText
         {
@@ -66,6 +69,7 @@ namespace CommonControlPlus
         /// OFFボタンのテキスト
         /// </summary>
         [Category("拡張機能")]
+        [Description("OFFボタンのテキスト")]
         [Browsable(true)]
         public string OffButtonText
         {

@@ -22,6 +22,7 @@ namespace CommonControlPlus
         /// Checkedの値が変更したときに発生するイベント
         /// </summary>
         [Browsable(true)]
+        [Description("Checkedの値が変更したときに発生します。")]
         public event EventHandler CheckedChanged = delegate { };
 
         #endregion
@@ -32,6 +33,7 @@ namespace CommonControlPlus
         /// コントロールに関連付けられたテキストです。
         /// </summary>
         [Category("表示")]
+        [Description("コントロールに関連付けられたテキストです。")]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)] // これが無いとビルド時にデザイナでの設定が消える！
         override public string Text
@@ -50,6 +52,7 @@ namespace CommonControlPlus
         /// コントロールがチェックされた状態かどうかを示します。
         /// </summary>
         [Category("表示")]
+        [Description("コントロールがチェックされた状態かどうかを示します。")]
         [Browsable(true)]
         public bool Checked
         {

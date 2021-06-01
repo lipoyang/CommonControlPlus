@@ -25,8 +25,6 @@ namespace CommonControlPlus
         /// <summary>
         /// 入力値チェック関数をここに設定します
         /// </summary>
-        [Category("拡張機能")]
-        [Browsable(true)]
         public InputValueCheckFunction InputValueCheck = null; // あえてeventでなくdelegateとする
 
         #endregion
@@ -37,6 +35,7 @@ namespace CommonControlPlus
         /// 入力できる最大値
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力できる最大値")]
         [Browsable(true)]
         public Type? MaxValue { set; get; } = null;
 
@@ -44,6 +43,7 @@ namespace CommonControlPlus
         /// 入力できる最小値
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力できる最小値")]
         [Browsable(true)]
         public Type? MinValue { set; get; } = null;
 
@@ -51,6 +51,7 @@ namespace CommonControlPlus
         /// 入力できる値の最小幅
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力できる最小幅")]
         [Browsable(true)]
         public Type? StepValue { set; get; } = null;
 

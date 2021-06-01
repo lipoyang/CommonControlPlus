@@ -20,6 +20,7 @@ namespace CommonControlPlus
         /// 値の変更が確定したときに発生するイベント
         /// </summary>
         [Category("拡張機能")]
+        [Description("値の変更が確定したときに発生します。")]
         [Browsable(true)]
         public event EventHandler Changed = delegate { };
 
@@ -34,6 +35,7 @@ namespace CommonControlPlus
         /// 入力文字列チェック関数をここに設定します
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力文字列チェック関数をここに設定します。")]
         [Browsable(true)]
         public event InputTextCheckFunction InputTextCheck = null;
 
@@ -45,6 +47,7 @@ namespace CommonControlPlus
         /// 入力エラー時にメッセージボックスでメッセージを出すか？
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力エラー時にメッセージボックスでメッセージを出すか？")]
         [Browsable(true)]
         public bool ErrorMessageBoxEnabled { set; get; } = false;
 
@@ -52,6 +55,7 @@ namespace CommonControlPlus
         /// 入力エラー時にコンソール出力にメッセージを出すか？
         /// </summary>
         [Category("拡張機能")]
+        [Description("入力エラー時にコンソール出力にメッセージを出すか？")]
         [Browsable(true)]
         public bool ErrorOutputEnabled { set; get; } = false;
 
@@ -59,6 +63,7 @@ namespace CommonControlPlus
         /// エラーメッセージをここに設定します
         /// </summary>
         [Category("拡張機能")]
+        [Description("エラーメッセージをここに設定します。")]
         [Browsable(true)]
         public string ErrorMessage { set; get; } = "";
 
